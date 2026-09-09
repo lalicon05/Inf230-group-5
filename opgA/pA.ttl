@@ -1,6 +1,3 @@
-# base for the ABox, so e.g.
-# <Frank> is short for "https://home.bawue.de/~horsch/teaching/inf230/lab/data#Frank"
-#
 @base <https://home.bawue.de/~horsch/teaching/inf230/lab/data#>.
 
 # these are always needed
@@ -81,36 +78,3 @@ p1:Person a owl:Class.
 p1:name a owl:DatatypeProperty;
    rdfs:domain p1:Person;
    rdfs:range xs:string.
-
-### ABox (instance data) ###
-
-<Frank> a p1:Person;
-   p1:p_number "11"^^xs:integer.
-
-#
-# [p1:o_number "32"^^xs:integer] p1:hasEmployee <Frank>.
-#
-<Frank> p1:isEmployedAt [p1:o_number "32"^^xs:integer].
-
-# Create a violation of 1.1b.4 with 1.3a by introducing an Organization that is an employee.
-#
-# <FakeOrganization> a p1:Organization.
-# <ActualOrganization> p1:hasEmployee <FakeOrganization>.
-
-# Create a violation of 1.1b.5 with 1.3a by introducing a Human that has an o_number.
-#
-# <Pete> a p1:Human;
-#    p1:o_number "33"^^xs:integer.
-
-# Create an apparent violation of 1.3b by introducing an Employer without introducing any employees.
-<ActualOrganization> a p1:Employer.
-#
-# Why is it only an apparent violation?
-# Open world assumption.
-
-# Create an apparent violation of 1.3c by introducing an individual with the same p_number as <Frank>.
-<Pete> a p1:Human;
-   p1:p_number "11"^^xs:integer.
-
-# Why is it only an apparent violation?
-# Non-unique naming convention.
