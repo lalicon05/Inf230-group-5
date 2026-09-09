@@ -20,6 +20,13 @@
    dcterms:title "Drafting problem 1"@en;
    dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
+### Train ###
+t1:Train a owl:Class;
+    
+
+
+
+
 ### Employer ###
 
 p1:Employer a owl:Class;
