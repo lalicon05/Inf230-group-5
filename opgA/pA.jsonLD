@@ -1,0 +1,35 @@
+{
+  "@context": {
+    "isson": "http://batcat.info/isson/data#",
+    "schema": "https://schema.org/"
+  },
+  "@id": "isson:ISSON26",
+  "@type": "schema:EducationEvent",
+  "schema:performer": [
+    {
+      "@id": "isson:Argiris_Laskarakis",
+      "@type": "schema:Person"
+    },
+    {
+      "@id": "isson:Sofia_Michailidou",
+      "@type": "schema:Person"
+    },
+    {
+      "@id": "isson:Heinz_Preisig",
+      "@type": "schema:Person"
+    }
+  ],
+  "schema:superEvent": {
+    "@id": "isson:NANOTEXNOLOGY_2026",
+    "@type": "schema:BusinessEvent",
+    "schema:organizer": [
+      {
+        "@id": "isson:Argiris_Laskarakis"
+      },
+      {
+        "@id": "isson:Stergios_Logothetidis",
+        "@type": "schema:Person"
+      }
+    ]
+  }
+}
