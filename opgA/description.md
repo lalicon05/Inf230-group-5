@@ -1,32 +1,41 @@
-link: https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-nb.html
+link: [Oppgave A](https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-nb.html)
 
-INF230-oppgave A: OWL-ontologier
+# INF230-oppgave A: OWL-ontologier
 
-Diskusjon planlagt 16.9.2026 kl. 8.15 - 9.00.
-A.1 Menneskespråk til RDFS
+> Diskusjon planlagt 16.9.2026 kl. 8.15 - 9.00.
+
+
+## A.1 Menneskespråk til RDFS
 
 Begynn å skrive en TTL-fil som gir uttrykk for følgende:
 
-    Tjenester kan gjøre bruk av driftsutstyr. (Les som: Forholdstypen "gjør bruk av" har domenet "tjeneste" og kodomenet "driftsutstyr".)
-    Dersom en tjeneste kjøres av noe driftsutstyr, så innebærer dette at den gjør bruk av det. (Les som: Forholdstypen "kjøres av" likner på, men er mer spesifikk enn "gjør bruk av".)
-    Togturer er en type teneste, og tog er en type driftsutstyr.
-    Start- og endestasjonen (til en togtur) må være togstasjoner.
+- Tjenester kan gjøre bruk av driftsutstyr. (Les som: Forholdstypen "gjør bruk av" har domenet "tjeneste" og kodomenet "driftsutstyr".)
+- Dersom en tjeneste kjøres av noe driftsutstyr, så innebærer dette at den gjør bruk av det. (Les som: Forholdstypen "kjøres av" likner på, men er mer spesifikk enn "gjør bruk av".)
+- Togturer er en type teneste, og tog er en type driftsutstyr.
+- Start- og endestasjonen (til en togtur) må være togstasjoner.
 
 TTL-fila må være komplett og i riktig syntaks; kriterium: Kan åpnes i protégé.
 
-Problem A.1 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 32.
+## Problem A.1 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 32.
 A.2 ABoks i TTL-format
 
-Skriv som ABoks i TTL: Det går en togtur fra Moss til Stabekk, som starter 16.9.2026 kl. 9.54 (xs:dateTime) og når endestasjonen kl. 10.49. Toget som kjører den tjenesten har åtte vogner. Bruk IRI-er for alle individ, dvs. ikke bruk blanke noder.
+Skriv som ABoks i TTL: 
+- Det går en togtur fra Moss til Stabekk, 
+  - starter 16.9.2026 kl. 9.54 (xs:dateTime) 
+  - og når endestasjonen kl. 10.49. 
+- Toget som kjører den tjenesten har åtte vogner. 
+- Bruk IRI-er for alle individ, dvs. ikke bruk blanke noder.
 
-Problem A.2 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 21.
+## Problem A.2 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 21.
+
+
 A.3 SPARQL-spørring
 
 Skriv en SPARQL-spørring som har en tabell med to kolonner som resultat: Først ?time, ankomsttida (+dato, dvs. dateTime) til togturer på Stabekk (og bare der); og som annen kolonne ?coaches, antallet på vogner til de toga som kjører dei respektive tjenestene.
 
 Dere kan bruke protégé til å sjekke at det fungerer (dersom deres versjon av protégé har SPARQL som plugin).
 
-Problem A.3 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 12.
+## Problem A.3 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 12.
 A.4 Menneskespråk til OWL
 
 Jobb videre med TTL-fila og implementer reglene:
@@ -35,25 +44,25 @@ Jobb videre med TTL-fila og implementer reglene:
     Hver togtur har et start- og endepunkt.
     Dersom noe driftsutstyr kjører en togtur, så er det et tog. (Les: Snittet av klassen driftsutstyr og klassen av dei tingene som kjører en togtur, er en subklasse av klassen tog. Dere kan bruke owl:inverseOf til å overføre "kjøres av" til "kjører" og omvendt.) 
 
-Problem A.4 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 20.
+## Problem A.4 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 20.
 A.5 Kompetansespørsmål
 
 Ontologien skal nå tilfredsstille kravet om å kunne uttrykke følgende kompetansespørsmål: På hvilke tidspunkter stopper tog på en viss togstasjon (som f.eks. Ås stasjon), og hva er endepunktene deres?
 
 Bevis at kravet er oppfylt og ontologien faktisk kan brukes til å stille dette spørsmålet.
 
-Problem A.5 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 5.
+## Problem A.5 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 5.
 A.6 Aristoteliske definisjoner
 
 Oppgi en aristotelisk genus-differentia-definisjon på tre begrep fra ontologien deres, og tilføy definisjonene til TTL-fila ved bruk av skos:definition. Også legg til de umiddelbare superklassene (de nærmeste overbegrepene) i ontologien.
 
-Problem A.6 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 14.
+## Problem A.6 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 14.
 A.7 ABoks i JSON-LD-format
 
 Lag en JSON-LD-fil for ABoksen, og bare ABoksen (dvs. den fra problem A.2). Sjekk at fila fungerer på JSON-LD Playground og at den kan lastes inn i protégé uten feil.
 
-Obs: Den ene TTL-fila dere lager (felles for alle deloppgaver) skal både inneholde ABoksen og TBoksen, i motsetning til JSON-LD-fila som bare skal inneholde ABoksen. Også legg ved et kort PDF eller annet tekstdokument for å forklare hva dere gjorde på hvilket steg; i stedet for en separat fil kan dere, dersom dere ønsker, også skrive det som kommentar i selve TTL-fila.
+> Obs: Den ene TTL-fila dere lager (felles for alle deloppgaver) skal både inneholde ABoksen og TBoksen, i motsetning til JSON-LD-fila som bare skal inneholde ABoksen. Også legg ved et kort PDF eller annet tekstdokument for å forklare hva dere gjorde på hvilket steg; i stedet for en separat fil kan dere, dersom dere ønsker, også skrive det som kommentar i selve TTL-fila.
 
-Problem A.7 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 11.
+## Problem A.7 skal diskuteres under presentasjonstimen (16.9. kl. 8.15) av gruppe 11.
 
 Velg målform
