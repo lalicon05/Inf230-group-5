@@ -49,6 +49,24 @@ a:TrainService a owl:Class;
    rdfs:subClassOf a:Services.
 
 
+a:ArrivalTime a owl:DatatypeProperty;
+   rdfs:domain a:TrainService;
+   rdfs:range xs:dateTime.
+
+a:DepartureTime a owl:DatatypeProperty;
+   rdfs:domain a:TrainService;
+   rdfs:range xs:dateTime.
+
+a:Destination a owl:DatatypeProperty;
+   rdfs:domain a:TrainService;
+   rdfs:range a:TrainStation.
+
+a:Origin a owl:DatatypeProperty;
+   rdfs:domain a:TrainService;
+   rdfs:range a:TrainStation.
+
+
+
 a:MakesUseOf a owl:ObjectProperty;
    rdfs:domain a:Services;
    rdfs:range a:OperatingEquipment.
@@ -61,7 +79,29 @@ a:IsRunBy a owl:ObjectProperty;
 
 ### Train station ###
 
-a:TrianStation a owl:Class
+a:TrainStation a owl:Class.
+
+a:TrainStationname a owl:DatatypeProperty;
+   rdfs:domain a:TrainStation;
+   rdfs:range xs:string.
+
+
+
+
+
+### ABOX ###
+
+<Moss> a a:TrainStation.
+
+<Stabekk> a a:TrainStation.
+
+<Linje5> a a:TrainService;
+   a:Origin <Moss>;
+   a:Destination <Stabekk>;
+   a:DepartureTime "2026-09-16T09:54:00"^^xs:dateTime;
+   a:ArrivalTime "2026-09-16T10:49:00"^^xs:dateTime.
+
+
 
 
 
