@@ -37,6 +37,10 @@ a:Train a owl:Class;
    rdfs:subClassOf a:OperatingEquipment.
 
 
+a:Coaches a owl:DatatypeProperty;
+   rdfs:domain a:Train;
+   rdfs:range xs:integer.
+
 
 
 ### Services ###
@@ -95,11 +99,17 @@ a:TrainStationname a owl:DatatypeProperty;
 
 <Stabekk> a a:TrainStation.
 
-<Linje5> a a:TrainService;
+<Train> a a:Train;
+   a:Coaches "8"^^xs:integer.
+
+
+<Service> a a:TrainService;
    a:Origin <Moss>;
    a:Destination <Stabekk>;
    a:DepartureTime "2026-09-16T09:54:00"^^xs:dateTime;
    a:ArrivalTime "2026-09-16T10:49:00"^^xs:dateTime.
+
+<Service> a:MakesUseOf <Train>.
 
 
 
