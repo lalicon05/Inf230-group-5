@@ -1,0 +1,7 @@
+SELECT ?time ?coaches WHERE {
+    ?service a a:TrainService;
+        a:Destination a:Stabekk;
+        a:ArrivalTime ?time;
+        a:MakesUseOf ?train.
+    ?train a:Coaches ?coaches.
+}
