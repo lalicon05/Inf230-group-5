@@ -12,7 +12,7 @@
 #
 @prefix dcterms: <http://purl.org/dc/terms/>.
 
-@prefix p1: <https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-problem-1.html#>.
+@prefix a: <https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#>.
 
 # some basic metadata
 #
@@ -20,10 +20,48 @@
    dcterms:title "Drafting problem 1"@en;
    dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
-### Train ###
-t1:Train a owl:Class;
-    
 
+
+
+
+### OperatingEquipment ###
+
+a:OperatingEquipment a owl:Class.
+
+
+
+
+### Train ###
+
+a:Train a owl:Class;
+   rdfs:subClassOf a:OperatingEquipment.
+
+
+
+
+### Services ###
+
+a:Services a owl:Class.
+
+### TrainService ###
+
+a:TrainService a owl:Class;
+   rdfs:subClassOf a:Services.
+
+
+a:MakesUseOf a owl:ObjectProperty;
+   rdfs:domain a:Services;
+   rdfs:range a:OperatingEquipment.
+
+a:IsRunBy a owl:ObjectProperty;
+   rdfs:SubPropertyOf a:MakesUseOf;
+   rdfs:domain a:Services;
+   rdfs:range a:OperatingEquipment.
+
+
+### Train station ###
+
+a:TrianStation a owl:Class
 
 
 
@@ -85,3 +123,36 @@ p1:Person a owl:Class.
 p1:name a owl:DatatypeProperty;
    rdfs:domain p1:Person;
    rdfs:range xs:string.
+
+   ### ABox (instance data) ###
+
+<Frank> a p1:Person;
+   p1:p_number "11"^^xs:integer.
+
+#
+# [p1:o_number "32"^^xs:integer] p1:hasEmployee <Frank>.
+#
+<Frank> p1:isEmployedAt [p1:o_number "32"^^xs:integer].
+
+# Create a violation of 1.1b.4 with 1.3a by introducing an Organization that is an employee.
+#
+# <FakeOrganization> a p1:Organization.
+# <ActualOrganization> p1:hasEmployee <FakeOrganization>.
+
+# Create a violation of 1.1b.5 with 1.3a by introducing a Human that has an o_number.
+#
+# <Pete> a p1:Human;
+#    p1:o_number "33"^^xs:integer.
+
+# Create an apparent violation of 1.3b by introducing an Employer without introducing any employees.
+<ActualOrganization> a p1:Employer.
+#
+# Why is it only an apparent violation?
+# Open world assumption.
+
+# Create an apparent violation of 1.3c by introducing an individual with the same p_number as <Frank>.
+<Pete> a p1:Human;
+   p1:p_number "11"^^xs:integer.
+
+# Why is it only an apparent violation?
+# Non-unique naming convention.
