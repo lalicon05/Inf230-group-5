@@ -1,7 +1,19 @@
 SELECT ?time ?coaches WHERE {
-    ?service a a:TrainService;
-        a:Destination a:Stabekk;
-        a:ArrivalTime ?time;
-        a:MakesUseOf ?train.
-    ?train a:Coaches ?coaches.
+    ?service a TrainService;
+        Destination Stabekk
+        ArrivalTime ?time
+        MakesUseOf ?train.
+    ?train Coaches ?coaches.
+}
+
+SELECT ?time ?destination WHERE {
+    ?service a TrainService;
+        DepartureTime ?time
+        Destintation ?destination
+        origin Aas
+    
+
+
+
+
 }
