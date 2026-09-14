@@ -34,7 +34,9 @@ a:OperatingEquipment a owl:Class.
 ### Train ###
 
 a:Train a owl:Class;
-   rdfs:subClassOf a:OperatingEquipment.
+   rdfs:subClassOf a:OperatingEquipment;
+   skos:definition "piece of operating equipment that has a number of coaches"@en.
+
 
 
 a:Coaches a owl:DatatypeProperty;
@@ -50,7 +52,8 @@ a:Services a owl:Class.
 ### TrainService ###
 
 a:TrainService a owl:Class;
-   rdfs:subClassOf a:Services.
+   rdfs:subClassOf a:Services;
+   skos:definition "service that is run by a train, with an origin and a destination that are train stations"@en.
 
 
 a:ArrivalTime a owl:DatatypeProperty;
@@ -81,9 +84,15 @@ a:IsRunBy a owl:ObjectProperty;
    rdfs:range a:OperatingEquipment.
 
 
+### Place ###
+
+a:Place a owl:Class.
+
 ### Train station ###
 
-a:TrainStation a owl:Class.
+a:TrainStation a owl:Class;
+   rdfs:subClassOf a:Place;
+   skos:definition "place where trains stop and train services can originate or terminate"@en.
 
 a:TrainStationname a owl:DatatypeProperty;
    rdfs:domain a:TrainStation;

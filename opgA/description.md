@@ -56,7 +56,7 @@ Prove that this is the case and that the ontology can really be used to express 
 
 >_Problem A.5 is to be discussed at the presentation session (16.9. 8.15) by group 5._
 
-## A.6 Aristotelian definitions
+## A.6 Aristotelian definitions (Gabriel)
 
 Provide Aristotelian genus-differentia definitions for three concepts from your ontology and include them in the TTL file using skos:definition. Include the superclasses (genera proxima) mentioned in these definitions in your ontology as well.
 
