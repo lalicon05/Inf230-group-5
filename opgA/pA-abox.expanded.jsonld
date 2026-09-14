@@ -1,0 +1,33 @@
+[
+  {
+    "@id": "https://home.bawue.de/~horsch/teaching/inf230/lab/data#Service",
+    "@type": ["https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#TrainService"],
+    "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#Origin": [
+      {
+        "@id": "https://home.bawue.de/~horsch/teaching/inf230/lab/data#Moss",
+        "@type": ["https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#TrainStation"]
+      }
+    ],
+    "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#Destination": [
+      {
+        "@id": "https://home.bawue.de/~horsch/teaching/inf230/lab/data#Stabekk",
+        "@type": ["https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#TrainStation"]
+      }
+    ],
+    "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#DepartureTime": [
+      { "@value": "2026-09-16T09:54:00", "@type": "http://www.w3.org/2001/XMLSchema#dateTime" }
+    ],
+    "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#ArrivalTime": [
+      { "@value": "2026-09-16T10:49:00", "@type": "http://www.w3.org/2001/XMLSchema#dateTime" }
+    ],
+    "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#MakesUseOf": [
+      {
+        "@id": "https://home.bawue.de/~horsch/teaching/inf230/lab/data#Train",
+        "@type": ["https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#Train"],
+        "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#Coaches": [
+          { "@value": 8, "@type": "http://www.w3.org/2001/XMLSchema#integer" }
+        ]
+      }
+    ]
+  }
+]
