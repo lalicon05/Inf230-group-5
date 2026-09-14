@@ -105,17 +105,17 @@ a:Runs a owl:ObjectProperty;
    owl:inverseOf a:IsRunBy.
 
 
-# [
-#    a owl:Class;
-#    a owl:interSectionOf (
-#       a:OperatingEquipment;
-#       [
-#          a:owl:Restriction;
-#          a:owl:onProperty a:Runs;
-#          a:owl:someValuesFrom a:TrainService
-#       ]
-#    )
-# ] rdfs:subClassOf a:Train.
+[
+   a owl:Class;
+   a owl:interSectionOf, (
+      a:OperatingEquipment
+      [
+         a owl:Restriction;
+         owl:onProperty a:Runs;
+         owl:someValuesFrom a:TrainService
+      ]
+   )
+] rdfs:subClassOf a:Train.
 
 
 ### Place ###
