@@ -69,7 +69,7 @@ a:TrainService a owl:Class;
 
    rdfs:subClassOf a [
       a owl:Restriction;
-      owl:onPoperty a:Destination;
+      owl:onProperty a:Destination;
       owl:someValuesFrom a:TrainStation
    ].
 
@@ -97,7 +97,7 @@ a:MakesUseOf a owl:ObjectProperty;
    rdfs:range a:OperatingEquipment.
 
 a:IsRunBy a owl:ObjectProperty;
-   rdfs:SubPropertyOf a:MakesUseOf;
+   rdfs:subPropertyOf a:MakesUseOf;
    rdfs:domain a:Services;
    rdfs:range a:OperatingEquipment.
 
@@ -107,7 +107,7 @@ a:Runs a owl:ObjectProperty;
 
 [
    a owl:Class;
-   a owl:interSectionOf, (
+   a owl:intersectionOf, (
       a:OperatingEquipment
       [
          a owl:Restriction;
