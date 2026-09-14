@@ -1,19 +1,22 @@
+BASE <https://home.bawue.de/~horsch/teaching/inf230/lab/data#>
+PREFIX a: <https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#>
+
+### A.3 ###
+
 SELECT ?time ?coaches WHERE {
-    ?service a TrainService;
-        Destination Stabekk
-        ArrivalTime ?time
-        MakesUseOf ?train.
-    ?train Coaches ?coaches.
+    ?service a a:TrainService;
+        a:Destination <Stabekk>;
+        a:ArrivalTime ?time;
+        a:MakesUseOf ?train.
+    ?train a:Coaches ?coaches.
 }
 
+### A.5 ###
+### This query proves that our ontology can be used to pose the question "When are trains stopping at some train station, and what are their destinations?" ###
+
 SELECT ?time ?destination WHERE {
-    ?service a TrainService;
-        DepartureTime ?time
-        Destintation ?destination
-        origin Aas
-    
-
-
-
-
+   ?service a a:TrainService;
+        a:DepartureTime ?time;
+        a:Destination ?destination;
+        a:Origin <Moss>.
 }
