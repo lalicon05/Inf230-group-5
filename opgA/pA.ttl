@@ -55,6 +55,24 @@ a:TrainService a owl:Class;
    rdfs:subClassOf a:Services;
    skos:definition "service that is run by a train, with an origin and a destination that are train stations"@en.
 
+   rdfs:subClassOf [
+      a:owl:Restriction;
+      a:owl:onProperty a:IsRunBy;
+      a:owl:someValuesFrom a:Train
+   ]
+
+   rdfs:subClassOf [
+      a:owl:Restriction;
+      a:owl:onProperty a:Origin;
+      a:owl:someValuesFrom a:TrainStation
+   ]
+
+   rdfs:subClassOf [
+      a:owl:Restriction;
+      a:owl:onPoperty a:Destination;
+      a:owl:someValuesFrom a:TrainStation
+   ]
+
 
 a:ArrivalTime a owl:DatatypeProperty;
    rdfs:domain a:TrainService;
@@ -82,6 +100,22 @@ a:IsRunBy a owl:ObjectProperty;
    rdfs:SubPropertyOf a:MakesUseOf;
    rdfs:domain a:Services;
    rdfs:range a:OperatingEquipment.
+
+a:Runs a owl:ObjectProperty;
+   owl:inverseOf a:IsRunBy.
+
+
+[
+   a:owl:Class ;
+   a:owl:interSectionOf (
+      a:OperatingEquipment;
+      [
+         a:owl:Restriction;
+         a:owl:onProperty a:Runs;
+         a:owl:someValuesFrom a:TrainService
+      ]
+   )
+] rdfs:subClassOf a:Train.
 
 
 ### Place ###
