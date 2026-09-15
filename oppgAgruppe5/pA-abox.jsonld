@@ -1,0 +1,30 @@
+{
+  "@context": {
+    "a": "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-A-en.html#",
+    "d": "https://home.bawue.de/~horsch/teaching/inf230/lab/data#",
+    "xs": "http://www.w3.org/2001/XMLSchema#",
+    "a:Coaches": { "@type": "xs:integer" },
+    "a:Origin": { "@type": "@id" },
+    "a:Destination": { "@type": "@id" },
+    "a:DepartureTime": { "@type": "xs:dateTime" },
+    "a:ArrivalTime": { "@type": "xs:dateTime" },
+    "a:MakesUseOf": { "@type": "@id" }
+  },
+  "@id": "d:Service",
+  "@type": "a:TrainService",
+  "a:Origin": {
+    "@id": "d:Moss",
+    "@type": "a:TrainStation"
+  },
+  "a:Destination": {
+    "@id": "d:Stabekk",
+    "@type": "a:TrainStation"
+  },
+  "a:DepartureTime": "2026-09-16T09:54:00",
+  "a:ArrivalTime": "2026-09-16T10:49:00",
+  "a:MakesUseOf": {
+    "@id": "d:Train",
+    "@type": "a:Train",
+    "a:Coaches": 8
+  }
+}
