@@ -26,7 +26,7 @@
 
 b:PhysicalThing a owl:Class;
    skos:definition "physical object that has at least one measurement"@en;
-   rdfs:comment "any mesherable physical object"@en.
+   rdfs:comment "any measurable physical object"@en.
 
 
 
@@ -52,9 +52,9 @@ b:Measurement a owl:Class;
    ].
 
 
-### BaseMeasurement ###
+### SIMeasurement ###
 
-b:BaseMeasurement a owl:Class;
+b:SIMeasurement a owl:Class;
    rdfs:subClassOf b:Measurement;
    skos:definition "measurement of one of the seven SI specs"@en.
 
@@ -62,44 +62,44 @@ b:BaseMeasurement a owl:Class;
 ### Length ###
 
 b:Length a owl:Class;
-   rdfs:subClassOf b:BaseMeasurement;
+   rdfs:subClassOf b:SIMeasurement;
    skos:definition "base measurement of the physical thing along one dimension"@en.
 
 ### Mass ###
 
 b:Mass a owl:Class;
-   rdfs:subClassOf b:BaseMeasurement;
+   rdfs:subClassOf b:SIMeasurement;
    skos:definition "base measurement of the amount of matter in a physical thing"@en.
 
 ### Time ###
 
 b:Time a owl:Class;
-   rdfs:subClassOf b:BaseMeasurement;
+   rdfs:subClassOf b:SIMeasurement;
    skos:definition "base measurement of a duration"@en.
 
 ### ElectricCurrent ###
 
 b:ElectricCurrent a owl:Class;
-   rdfs:subClassOf b:BaseMeasurement;
+   rdfs:subClassOf b:SIMeasurement;
    skos:definition "base measurement of the electric charge through a physical thing"@en.
 
 ### Temperature ###
 
 b:Temperature a owl:Class;
-   rdfs:subClassOf b:BaseMeasurement;
+   rdfs:subClassOf b:SIMeasurement;
    skos:definition "base measurement of the thermal energy"@en.
 
 ### AmountOfSubstance ###
 
 b:AmountOfSubstance a owl:Class;
-   rdfs:subClassOf b:BaseMeasurement;
+   rdfs:subClassOf b:SIMeasurement;
    skos:altLabel "mol"@en;
    skos:definition "base measurement of the number of entities"@en.
 
 ### LuminousIntensity ###
 
 b:LuminousIntensity a owl:Class;
-   rdfs:subClassOf b:BaseMeasurement;
+   rdfs:subClassOf b:SIMeasurement;
    skos:altLabel "light level"@en;
    skos:definition "light emitted by a physical thing"@en.
 
