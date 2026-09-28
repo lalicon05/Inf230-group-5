@@ -1,0 +1,293 @@
+@base <https://home.bawue.de/~horsch/teaching/inf230/lab/data#>.
+
+# these are always needed
+#
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix xs: <http://www.w3.org/2001/XMLSchema#>.
+
+# common for annotating datasets: Dublin Core (DC)
+#
+@prefix dcterms: <http://purl.org/dc/terms/>.
+
+@prefix b: <https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-B.html#>.
+
+# some basic metadata
+#
+<https://home.bawue.de/~horsch/teaching/inf230/material/group5.ttl> a owl:Ontology;
+   dcterms:title "Uncertainties and errors in physical quantities, group 5"@en;
+   dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>.
+
+
+
+### PhysicalThing ###
+
+b:PhysicalThing a owl:Class;
+   skos:definition "physical object that has at least one measurement"@en;
+   rdfs:comment "any mesherable physical object"@en.
+
+
+
+
+### Measurement ###
+
+b:Measurement a owl:Class;
+   skos:definition "quality of a physical thing that has been measured, expressed by a value and a unit"@en;
+   rdfs:subClassOf [
+      a owl:Restriction;
+      owl:onProperty b:HasMeasuredValue;
+      owl:someValuesFrom b:MeasuredValue
+   ];
+   rdfs:subClassOf [
+      a owl:Restriction;
+      owl:onProperty b:HasUnit;
+      owl:someValuesFrom b:Unit
+   ];
+   rdfs:subClassOf [
+      a owl:Restriction;
+      owl:onProperty b:MeasurementOf;
+      owl:someValuesFrom b:PhysicalThing
+   ].
+
+
+### BaseMeasurement ###
+
+b:BaseMeasurement a owl:Class;
+   rdfs:subClassOf b:Measurement;
+   skos:definition "measurement of one of the seven SI specs"@en.
+
+
+### Length ###
+
+b:Length a owl:Class;
+   rdfs:subClassOf b:BaseMeasurement;
+   skos:definition "base measurement of the physical thing along one dimension"@en.
+
+### Mass ###
+
+b:Mass a owl:Class;
+   rdfs:subClassOf b:BaseMeasurement;
+   skos:definition "base measurement of the amount of matter in a physical thing"@en.
+
+### Time ###
+
+b:Time a owl:Class;
+   rdfs:subClassOf b:BaseMeasurement;
+   skos:definition "base measurement of a duration"@en.
+
+### ElectricCurrent ###
+
+b:ElectricCurrent a owl:Class;
+   rdfs:subClassOf b:BaseMeasurement;
+   skos:definition "base measurement of the electric charge through a physical thing"@en.
+
+### Temperature ###
+
+b:Temperature a owl:Class;
+   rdfs:subClassOf b:BaseMeasurement;
+   skos:definition "base measurement of the thermal energy"@en.
+
+### AmountOfSubstance ###
+
+b:AmountOfSubstance a owl:Class;
+   rdfs:subClassOf b:BaseMeasurement;
+   skos:altLabel "mol"@en;
+   skos:definition "base measurement of the number of entities"@en.
+
+### LuminousIntensity ###
+
+b:LuminousIntensity a owl:Class;
+   rdfs:subClassOf b:BaseMeasurement;
+   skos:altLabel "light level"@en;
+   skos:definition "light emitted by a physical thing"@en.
+
+
+
+
+### Value ###
+
+b:Value a owl:Class;
+   skos:definition "numeric size of a measurement, expressed in a given unit"@en;
+
+
+### MeasuredValue ###
+
+b:MeasuredValue a owl:Class;
+   rdfs:subClassOf b:Value;
+   skos:definition "value that was obtained by measuring a property of a physical thing"@en.
+
+
+### BoundValue ###
+
+b:BoundValue a owl:Class;
+   rdfs:subClassOf b:Value;
+   skos:definition "value that limits the range within which the measured value can lie"@en.
+
+
+### MaximumValue ###
+
+b:MaximumValue a owl:Class;
+   rdfs:subClassOf b:BoundValue;
+   skos:definition "bound value that equals the measured value plus its absolute uncertainty"@en.
+
+
+### MinimumValue ###
+
+b:MinimumValue a owl:Class;
+   rdfs:subClassOf b:BoundValue;
+   skos:definition "bound value that equals the measured value minus its absolute uncertainty"@en.
+
+
+
+
+### Uncertainty ###
+
+b:Uncertainty a owl:Class;
+   skos:definition "quantified doubt about how closely a value represents the measured property"@en;
+
+### AbsoluteUncertainty ###
+
+b:AbsoluteUncertainty a owl:Class;
+   rdfs:subClassOf b:Uncertainty;
+   skos:definition "uncertainty that is given in the same unit as the measured value"@en.
+
+
+### PercentwiseUncertainty ###
+
+b:PercentwiseUncertainty a owl:Class;
+   rdfs:subClassOf b:Uncertainty;
+   skos:definition "uncertainty that is given as a percentage of the measured value"@en.
+
+
+
+
+### Unit ###
+
+b:Unit a owl:Class;
+   skos:definition "standardized reference quantity in which the values of a measurement are expressed"@en;
+
+[
+   a owl:AllDisjointClasses;
+   owl:members (
+      b:PhysicalThing
+      b:Measurement
+      b:Value
+      b:Uncertainty
+      b:Unit
+   )
+].
+
+[
+   a owl:AllDisjointClasses;
+   owl:members (
+      b:Length
+      b:Mass
+      b:Time
+      b:ElectricCurrent
+      b:Temperature
+      b:AmountOfSubstance
+      b:LuminousIntensity
+   )
+].
+
+[
+   a owl:AllDisjointClasses;
+   owl:members (
+      b:MeasuredValue
+      b:BoundValue
+   )
+].
+
+[
+   a owl:AllDisjointClasses;
+   owl:members (
+      b:MaximumValue
+      b:MinimumValue
+   )
+].
+
+[
+   a owl:AllDisjointClasses;
+   owl:members (
+      b:AbsoluteUncertainty
+      b:PercentwiseUncertainty
+   )
+].
+
+
+
+
+### Object properties: thing and measurement ###
+
+b:HasMeasurement a owl:ObjectProperty;
+   rdfs:domain b:PhysicalThing;
+   rdfs:range b:Measurement.
+
+b:MeasurementOf a owl:ObjectProperty;
+   owl:inverseOf b:HasMeasurement.
+
+
+
+
+### Object properties: value ###
+
+b:HasValue a owl:ObjectProperty;
+   rdfs:domain b:Measurement;
+   rdfs:range b:Value.
+
+b:HasMeasuredValue a owl:ObjectProperty, owl:FunctionalProperty;
+   rdfs:subPropertyOf b:HasValue;
+   rdfs:domain b:Measurement;
+   rdfs:range b:MeasuredValue.
+
+b:HasMaximumValue a owl:ObjectProperty, owl:FunctionalProperty;
+   rdfs:subPropertyOf b:HasValue;
+   rdfs:domain b:Measurement;
+   rdfs:range b:MaximumValue.
+
+b:HasMinimumValue a owl:ObjectProperty, owl:FunctionalProperty;
+   rdfs:subPropertyOf b:HasValue;
+   rdfs:domain b:Measurement;
+   rdfs:range b:MinimumValue.
+
+
+
+
+### Object properties: uncertainty ###
+
+b:HasUncertainty a owl:ObjectProperty;
+   rdfs:domain b:Measurement;
+   rdfs:range b:Uncertainty.
+
+b:HasAbsoluteUncertainty a owl:ObjectProperty, owl:FunctionalProperty;
+   rdfs:subPropertyOf b:HasUncertainty;
+   rdfs:domain b:Measurement;
+   rdfs:range b:AbsoluteUncertainty.
+
+b:HasPercentwiseUncertainty a owl:ObjectProperty, owl:FunctionalProperty;
+   rdfs:subPropertyOf b:HasUncertainty;
+   rdfs:domain b:Measurement;
+   rdfs:range b:PercentwiseUncertainty.
+
+
+
+
+### Object properties: unit ###
+
+b:HasUnit a owl:ObjectProperty, owl:FunctionalProperty;
+   rdfs:domain b:Measurement;
+   rdfs:range b:Unit.
+
+
+
+
+### Datatype properties ###
+
+b:NumericValue a owl:DatatypeProperty;
+   rdfs:domain [
+      a owl:Class;
+      owl:unionOf ( b:Value b:Uncertainty )
+   ];
+   rdfs:range xs:decimal.
