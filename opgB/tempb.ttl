@@ -85,6 +85,8 @@ b:LuminousIntensity a owl:Class;
    skos:definition "light emitted by a physical thing"@en.
 
 
+### Values ###
+
 b:MeasuredValue a owl:DatatypeProperty;
     rdfs:domain b:Measurement;
     rdfs:range xs:float.
@@ -108,3 +110,12 @@ b:UncertaintyAbsolute a owl:DatatypeProperty;
 b:UncertaintyPercent a owl:DatatypeProperty;
     rdfs:domain b:Measurement;
     rdfs:range xs:float.
+
+b:SIUnit a owl:DatatypeProperty;
+    rdfs:domain b:SIMeasurement;
+    rdfs:range [
+        a rdfs:Datatype;
+        owl:oneOf (
+            "m" "kg" "s" "A" "K" "mol" "cd"
+        )
+    ].
