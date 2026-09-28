@@ -2,4 +2,4 @@
 the git repository for group 5 in the inf230 course aqssignements.
 
 
-hei lasse
+hei lasse 
