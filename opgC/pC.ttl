@@ -26,12 +26,29 @@
 
 c:PhysicalThing a owl:Class;
    skos:definition "physical object that has at least one measurement"@en;
-   rdfs:comment "any measurable physical object"@en.
+   rdfs:comment "any measurable physical object"@en;
+   rdfs:subClassOf [
+    a owl:Restriction;
+    owl:onProperty c:HasMeasurement;
+    owl:minCardinality "1"
+   ];
+   rdfs:subClassOf [
+    a owl:Restriction;
+    owl:onProperty c:Name;
+    owl:minCardinality "1"
+   ].
+
+
 
 ### Measurement ###
 
 c:Measurement a owl:Class;
    skos:definition "quality of a physical thing that has been measured, expressed by a value and a unit"@en;
+    rdfs:subClassOf [
+      a owl:Restriction;
+      owl:onProperty c:MeasurementOf;
+      owl:minCardinality "1"
+   ];
    rdfs:subClassOf [
       a owl:Restriction;
       owl:onProperty c:UncertaintyAbsolute;
@@ -47,7 +64,6 @@ c:Measurement a owl:Class;
       owl:onProperty c:ErrorAbsolute;
       owl:cardinality "1"
    ].
-
 
 
 
@@ -142,7 +158,8 @@ c:ErrorPercent a owl:DatatypeProperty;
     rdfs:domain c:Measurement;
     rdfs:range xs:float.
 
-c:SIUnit a owl:DatatypeProperty;
+c:SIUnit a owl:DatatypeProperty,
+        owl:FunctionalProperty;
     rdfs:domain c:SIMeasurement;
     rdfs:range [
         a rdfs:Datatype;
@@ -151,18 +168,24 @@ c:SIUnit a owl:DatatypeProperty;
         )
     ].
 
-### Object Propertied ###
+c:Name a owl:DatatypeProperty;
+    rdfs:domain c:PhysicalThing;
+    rdfs:range xs:string.
+### Object Properties ###
 
 c:HasMeasurement a owl:ObjectProperty;
    rdfs:domain c:PhysicalThing;
    rdfs:range c:Measurement.
 
-c:MeasurementOf a owl:ObjectProperty;
+c:MeasurementOf a owl:ObjectProperty,
+        owl:FunctionalProperty;
    owl:inverseOf c:HasMeasurement.
+   
 
 
 
-### ABox test ###
+
+### ABox ###
 
 #<TableLength> a c:Length;
 #   c:SIUnit "m";
