@@ -1,0 +1,172 @@
+@base <https://home.bawue.de/~horsch/teaching/inf230/lab/data#>.
+
+# these are always needed
+#
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix xs: <http://www.w3.org/2001/XMLSchema#>.
+
+# common for annotating datasets: Dublin Core (DC)
+#
+@prefix dcterms: <http://purl.org/dc/terms/>.
+
+@prefix c: <https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-C.html#>.
+
+# some basic metadata
+#
+<https://home.bawue.de/~horsch/teaching/inf230/material/group5.ttl> a owl:Ontology;
+   dcterms:title "Uncertainties and errors in physical quantities, group 5"@en;
+   dcterms:license <https://creativecommons.org/licenses/by-nc-sa/4.0/>.
+
+
+
+### PhysicalThing ###
+
+c:PhysicalThing a owl:Class;
+   skos:definition "physical object that has at least one measurement"@en;
+   rdfs:comment "any measurable physical object"@en.
+
+### Measurement ###
+
+c:Measurement a owl:Class;
+   skos:definition "quality of a physical thing that has been measured, expressed by a value and a unit"@en;
+   rdfs:subClassOf [
+      a owl:Restriction;
+      owl:onProperty c:UncertaintyAbsolute;
+      owl:cardinality "1"
+   ];
+   rdfs:subClassOf [
+      a owl:Restriction;
+      owl:onProperty c:MeasuredValue;
+      owl:cardinality "1"
+   ];
+   rdfs:subClassOf [
+      a owl:Restriction;
+      owl:onProperty c:ErrorAbsolute;
+      owl:cardinality "1"
+   ].
+
+
+
+
+### SIMeasurement ###
+
+c:SIMeasurement a owl:Class;
+   rdfs:subClassOf c:Measurement;
+   skos:definition "measurement of one of the seven SI specs"@en;
+      rdfs:subClassOf [
+      a owl:Restriction;
+      owl:onProperty c:SIUnit;
+      owl:cardinality "1"
+   ].
+
+
+### Length ###
+
+c:Length a owl:Class;
+   rdfs:subClassOf c:SIMeasurement;
+   skos:definition "base measurement of the physical thing along one dimension"@en.
+
+### Mass ###
+
+c:Mass a owl:Class;
+   rdfs:subClassOf c:SIMeasurement;
+   skos:definition "base measurement of the amount of matter in a physical thing"@en.
+
+### Time ###
+
+c:Time a owl:Class;
+   rdfs:subClassOf c:SIMeasurement;
+   skos:definition "base measurement of a duration"@en.
+
+### ElectricCurrent ###
+
+c:ElectricCurrent a owl:Class;
+   rdfs:subClassOf c:SIMeasurement;
+   skos:definition "base measurement of the electric charge through a physical thing"@en.
+
+### Temperature ###
+
+c:Temperature a owl:Class;
+   rdfs:subClassOf c:SIMeasurement;
+   skos:definition "base measurement of the thermal energy"@en.
+
+### AmountOfSubstance ###
+
+c:AmountOfSubstance a owl:Class;
+   rdfs:subClassOf c:SIMeasurement;
+   skos:altLabel "mol"@en;
+   skos:definition "base measurement of the number of entities"@en.
+
+### LuminousIntensity ###
+
+c:LuminousIntensity a owl:Class;
+   rdfs:subClassOf c:SIMeasurement;
+   skos:altLabel "light level"@en;
+   skos:definition "light emitted by a physical thing"@en.
+
+
+### Datatype properties ###
+
+c:MeasuredValue a owl:DatatypeProperty;
+    rdfs:domain c:Measurement;
+    rdfs:range xs:float.
+
+c:BoundValue a owl:DatatypeProperty;
+    rdfs:domain c:Measurement;
+    rdfs:range xs:float.
+
+c:MaximumValue a owl:DatatypeProperty;
+    rdfs:domain c:Measurement;
+    rdfs:range xs:float.
+
+c:MinimumValue a owl:DatatypeProperty;
+    rdfs:domain c:Measurement;
+    rdfs:range xs:float.
+
+c:UncertaintyAbsolute a owl:DatatypeProperty;
+    rdfs:domain c:Measurement;
+    rdfs:range xs:float.
+
+c:UncertaintyPercent a owl:DatatypeProperty;
+    rdfs:domain c:Measurement;
+    rdfs:range xs:float.
+
+c:ErrorAbsolute a owl:DatatypeProperty;
+    rdfs:domain c:Measurement;
+    rdfs:range xs:float.
+
+c:ErrorPercent a owl:DatatypeProperty;
+    rdfs:domain c:Measurement;
+    rdfs:range xs:float.
+
+c:SIUnit a owl:DatatypeProperty;
+    rdfs:domain c:SIMeasurement;
+    rdfs:range [
+        a rdfs:Datatype;
+        owl:oneOf (
+            "m" "kg" "s" "A" "K" "mol" "cd"
+        )
+    ].
+
+### Object Propertied ###
+
+c:HasMeasurement a owl:ObjectProperty;
+   rdfs:domain c:PhysicalThing;
+   rdfs:range c:Measurement.
+
+c:MeasurementOf a owl:ObjectProperty;
+   owl:inverseOf c:HasMeasurement.
+
+
+
+### ABox test ###
+
+#<TableLength> a c:Length;
+#   c:SIUnit "m";
+#   c:MeasuredValue "30.4";
+#   c:UncertaintyAbsolute "0.7";
+#   c:ErrorAbsolute "0";
+#   c:ErrorPercent "0".
