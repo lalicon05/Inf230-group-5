@@ -47,7 +47,7 @@ c:Measurement a owl:Class;
     rdfs:subClassOf [
       a owl:Restriction;
       owl:onProperty c:MeasurementOf;
-      owl:minCardinality "1"
+      owl:cardinality "1"
    ];
    rdfs:subClassOf [
       a owl:Restriction;
