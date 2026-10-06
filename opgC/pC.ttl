@@ -208,11 +208,6 @@ c:MeasurementOf a owl:ObjectProperty,
    rdfs:label "Table";
    c:HasMeasurement <TableWidth>, <TableDepth>, <TableHeight>, <TableMass>.
 
-<WaterBottle> a c:PhysicalThing;
-   c:Name "water bottle";
-   rdfs:label "Water bottle (0.5 L, full)";
-   c:HasMeasurement <BottleHeight>, <BottleMass>.
-
 <Room> a c:PhysicalThing;
    c:Name "room";
    rdfs:label "Room";
@@ -224,55 +219,29 @@ c:MeasurementOf a owl:ObjectProperty,
    c:MeasurementOf <Table>;
    c:MeasuredValue "1.600"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
-   c:UncertaintyPercent "0.0625"^^xs:float;
-   c:ErrorAbsolute "0.002"^^xs:float;
-   c:ErrorPercent "0.125"^^xs:float.
+   c:ErrorAbsolute "0.002"^^xs:float.
 
 <TableDepth> a c:Length;
    rdfs:label "Table depth";
    c:MeasurementOf c:Table;
    c:MeasuredValue "0.800"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
-   c:UncertaintyPercent "0.125"^^xs:float;
-   c:ErrorAbsolute "0.001"^^xs:float;
-   c:ErrorPercent "0.125"^^xs:float.
+   c:ErrorAbsolute "0.001"^^xs:float.
 
 <TableHeight> a c:Length;
    rdfs:label "Table height";
    c:MeasurementOf c:Table;
    c:MeasuredValue "0.750"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
-   c:UncertaintyPercent "0.133"^^xs:float;
-   c:ErrorAbsolute "0.0"^^xs:float;
-   c:ErrorPercent "0.0"^^xs:float.
+   c:ErrorAbsolute "0.0"^^xs:float.
 
 <TableMass> a c:Mass;
    rdfs:label "Table mass";
    c:MeasurementOf c:Table;
    c:MeasuredValue "25.0"^^xs:float;
    c:UncertaintyAbsolute "0.1"^^xs:float;
-   c:UncertaintyPercent "0.4"^^xs:float;
-   c:ErrorAbsolute "0.2"^^xs:float;
-   c:ErrorPercent "0.806"^^xs:float.
+   c:ErrorAbsolute "0.2"^^xs:float.
 
-# Water bottle measurements
-<BottleHeight> a c:Length;
-   rdfs:label "Bottle height";
-   c:MeasurementOf c:WaterBottle;
-   c:MeasuredValue "0.210"^^xs:float;
-   c:UncertaintyAbsolute "0.001"^^xs:float;
-   c:UncertaintyPercent "0.476"^^xs:float;
-   c:ErrorAbsolute "0.001"^^xs:float;
-   c:ErrorPercent "0.476"^^xs:float.
-
-<BottleMass> a c:Mass;
-   rdfs:label "Bottle mass";
-   c:MeasurementOf c:WaterBottle;
-   c:MeasuredValue "0.530"^^xs:float;
-   c:UncertaintyAbsolute "0.005"^^xs:float;
-   c:UncertaintyPercent "0.943"^^xs:float;
-   c:ErrorAbsolute "0.010"^^xs:float;
-   c:ErrorPercent "1.923"^^xs:float.
 
 # Room measurements
 <RoomWidth> a c:Length;
@@ -280,24 +249,18 @@ c:MeasurementOf a owl:ObjectProperty,
    c:MeasurementOf c:Room;
    c:MeasuredValue "4.00"^^xs:float;
    c:UncertaintyAbsolute "0.01"^^xs:float;
-   c:UncertaintyPercent "0.25"^^xs:float;
-   c:ErrorAbsolute "0.02"^^xs:float;
-   c:ErrorPercent "0.503"^^xs:float.
+   c:ErrorAbsolute "0.02"^^xs:float.
 
 <RoomDepth> a c:Length;
    rdfs:label "Room depth";
    c:MeasurementOf c:Room;
    c:MeasuredValue "3.00"^^xs:float;
    c:UncertaintyAbsolute "0.01"^^xs:float;
-   c:UncertaintyPercent "0.333"^^xs:float;
-   c:ErrorAbsolute "0.01"^^xs:float;
-   c:ErrorPercent "0.332"^^xs:float.
+   c:ErrorAbsolute "0.01"^^xs:float.
 
 <RoomTemperature> a c:Temperature;
    rdfs:label "Room temperature";
    c:MeasurementOf c:Room;
    c:MeasuredValue "295.15"^^xs:float;
    c:UncertaintyAbsolute "0.5"^^xs:float;
-   c:UncertaintyPercent "0.169"^^xs:float;
-   c:ErrorAbsolute "0.3"^^xs:float;
-   c:ErrorPercent "0.102"^^xs:float.
+   c:ErrorAbsolute "0.3"^^xs:float.
