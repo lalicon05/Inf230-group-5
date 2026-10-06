@@ -231,52 +231,52 @@ c:Temperature a c:SIMeasurement;
    c:SIUnit "K".
 
 # Things
-ABox:Table a c:PhysicalThing;
+c:Table a c:PhysicalThing;
    c:Name "table";
    rdfs:label "Table";
-   c:HasMeasurement ABox:TableWidth, ABox:TableDepth, ABox:TableHeight, ABox:TableMass.
+   c:HasMeasurement c:TableWidth, c:TableDepth, c:TableHeight, c:TableMass.
 
-ABox:WaterBottle a c:PhysicalThing;
+c:WaterBottle a c:PhysicalThing;
    c:Name "water bottle";
    rdfs:label "Water bottle (0.5 L, full)";
-   c:HasMeasurement ABox:BottleHeight, ABox:BottleMass.
+   c:HasMeasurement c:BottleHeight, c:BottleMass.
 
-ABox:Room a c:PhysicalThing;
+c:Room a c:PhysicalThing;
    c:Name "room";
    rdfs:label "Room";
-   c:HasMeasurement ABox:RoomWidth, ABox:RoomDepth, ABox:RoomTemperature.
+   c:HasMeasurement c:RoomWidth, c:RoomDepth, c:RoomTemperature.
 
 # Table measurements
-ABox:TableWidth a c:Width;
+c:TableWidth a c:Width;
    rdfs:label "Table width";
-   c:MeasurementOf ABox:Table;
+   c:MeasurementOf c:Table;
    c:MeasuredValue "1.600"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
    c:UncertaintyPercent "0.0625"^^xs:float;
    c:ErrorAbsolute "0.002"^^xs:float;
    c:ErrorPercent "0.125"^^xs:float.
 
-ABox:TableDepth a c:Depth;
+c:TableDepth a c:Depth;
    rdfs:label "Table depth";
-   c:MeasurementOf ABox:Table;
+   c:MeasurementOf c:Table;
    c:MeasuredValue "0.800"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
    c:UncertaintyPercent "0.125"^^xs:float;
    c:ErrorAbsolute "0.001"^^xs:float;
    c:ErrorPercent "0.125"^^xs:float.
 
-ABox:TableHeight a c:Height;
+c:TableHeight a c:Height;
    rdfs:label "Table height";
-   c:MeasurementOf ABox:Table;
+   c:MeasurementOf c:Table;
    c:MeasuredValue "0.750"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
    c:UncertaintyPercent "0.133"^^xs:float;
    c:ErrorAbsolute "0.0"^^xs:float;
    c:ErrorPercent "0.0"^^xs:float.
 
-ABox:TableMass a c:Mass;
+c:TableMass a c:Mass;
    rdfs:label "Table mass";
-   c:MeasurementOf ABox:Table;
+   c:MeasurementOf c:Table;
    c:MeasuredValue "25.0"^^xs:float;
    c:UncertaintyAbsolute "0.1"^^xs:float;
    c:UncertaintyPercent "0.4"^^xs:float;
@@ -284,18 +284,18 @@ ABox:TableMass a c:Mass;
    c:ErrorPercent "0.806"^^xs:float.
 
 # Water bottle measurements
-ABox:BottleHeight a c:Height;
+c:BottleHeight a c:Height;
    rdfs:label "Bottle height";
-   c:MeasurementOf ABox:WaterBottle;
+   c:MeasurementOf c:WaterBottle;
    c:MeasuredValue "0.210"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
    c:UncertaintyPercent "0.476"^^xs:float;
    c:ErrorAbsolute "0.001"^^xs:float;
    c:ErrorPercent "0.476"^^xs:float.
 
-ABox:BottleMass a c:Mass;
+c:BottleMass a c:Mass;
    rdfs:label "Bottle mass";
-   c:MeasurementOf ABox:WaterBottle;
+   c:MeasurementOf c:WaterBottle;
    c:MeasuredValue "0.530"^^xs:float;
    c:UncertaintyAbsolute "0.005"^^xs:float;
    c:UncertaintyPercent "0.943"^^xs:float;
@@ -303,27 +303,27 @@ ABox:BottleMass a c:Mass;
    c:ErrorPercent "1.923"^^xs:float.
 
 # Room measurements
-ABox:RoomWidth a c:Width;
+c:RoomWidth a c:Width;
    rdfs:label "Room width";
-   c:MeasurementOf ABox:Room;
+   c:MeasurementOf c:Room;
    c:MeasuredValue "4.00"^^xs:float;
    c:UncertaintyAbsolute "0.01"^^xs:float;
    c:UncertaintyPercent "0.25"^^xs:float;
    c:ErrorAbsolute "0.02"^^xs:float;
    c:ErrorPercent "0.503"^^xs:float.
 
-ABox:RoomDepth a c:Depth;
+c:RoomDepth a c:Depth;
    rdfs:label "Room depth";
-   c:MeasurementOf ABox:Room;
+   c:MeasurementOf c:Room;
    c:MeasuredValue "3.00"^^xs:float;
    c:UncertaintyAbsolute "0.01"^^xs:float;
    c:UncertaintyPercent "0.333"^^xs:float;
    c:ErrorAbsolute "0.01"^^xs:float;
    c:ErrorPercent "0.332"^^xs:float.
 
-ABox:RoomTemperature a c:Temperature;
+c:RoomTemperature a c:Temperature;
    rdfs:label "Room temperature";
-   c:MeasurementOf ABox:Room;
+   c:MeasurementOf c:Room;
    c:MeasuredValue "295.15"^^xs:float;
    c:UncertaintyAbsolute "0.5"^^xs:float;
    c:UncertaintyPercent "0.169"^^xs:float;
