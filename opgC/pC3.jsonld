@@ -71,6 +71,49 @@
         "c:ErrorAbsolute": 0.0,
         "c:ErrorPercent": 0.0
     },
+    {
+        "@id": "Room",
+        "@type": "c:PhysicalThing",
+        "c:Name": "Room",
+        "c:HasMeasurement": [
+            "c:RoomWidth",
+            "c:RoomDepth",
+            "c:RoomTemperature"
+        ]
+    },
+    {
+        "@id": "RoomWidth",
+        "@type": "c:Length",
+        "c:Name": "RoomWidth",
+        "c:MeasurementOf": "c:Room",
+        "c:MeasuredValue": 4.00,
+        "c:UncertaintyAbsolute": 0.01,
+        "c:UncertaintyPercent": 0.25,
+        "c:ErrorAbsolute": 0.02,
+        "c:ErrorPercent": 0.503
+    },
+    {
+        "@id": "RoomDepth",
+        "@type": "c:Length",
+        "c:Name": "RoomDepth",
+        "c:MeasurementOf": "c:Room",
+        "c:MeasuredValue": 3.00,
+        "c:UncertaintyAbsolute": 0.01,
+        "c:UncertaintyPercent": 0.333,
+        "c:ErrorAbsolute": 0.01,
+        "c:ErrorPercent": 0.332
+    },
+    {
+        "@id": "RoomTemperature",
+        "@type": "c:Temperature",
+        "c:Name": "RoomTemperature",
+        "c:MeasurementOf": "c:Room",
+        "c:MeasuredValue": 295.15,
+        "c:UncertaintyAbsolute": 0.5,
+        "c:UncertaintyPercent": 0.169,
+        "c:ErrorAbsolute": 0.3,
+        "c:ErrorPercent": 0.102
+    },
 
     {
         "@id": "Bottle",
