@@ -202,61 +202,33 @@ c:MeasurementOf a owl:ObjectProperty,
 
 # backbone
 
-c:Length a c:SIMeasurement;
-   rdfs:label "length";
-   skos:definition "length of a physical thing"@en;
-   c:SIUnit "m".
-
-
-c:Width a c:Length;
-   rdfs:label "width";
-   skos:definition "width of a physical thing"@en.
-
-c:Depth a c:Length;
-   rdfs:label "depth";
-   skos:definition "depth of a physical thing"@en.
-
-c:Height a c:Length;
-   rdfs:label "height";
-   skos:definition "height of a physical thing"@en.
-
-c:Mass a c:SIMeasurement;
-   rdfs:label "mass";
-   skos:definition "mass of a physical thing"@en;
-   c:SIUnit "kg".
-
-c:Temperature a c:SIMeasurement;
-   rdfs:label "temperature";
-   skos:definition "temperature of a physical thing"@en;
-   c:SIUnit "K".
-
 # Things
 c:<Table> a c:PhysicalThing;
    c:Name "table";
    rdfs:label "Table";
-   c:HasMeasurement c:TableWidth, c:TableDepth, c:TableHeight, c:TableMass.
+   c:HasMeasurement <TableWidth>, <TableDepth>, <TableHeight>, <TableMass>.
 
 c:<WaterBottle> a c:PhysicalThing;
    c:Name "water bottle";
    rdfs:label "Water bottle (0.5 L, full)";
-   c:HasMeasurement c:BottleHeight, c:BottleMass.
+   c:HasMeasurement <BottleHeight>, <BottleMass>.
 
 c:<Room> a c:PhysicalThing;
    c:Name "room";
    rdfs:label "Room";
-   c:HasMeasurement c:RoomWidth, c:RoomDepth, c:RoomTemperature.
+   c:HasMeasurement <RoomWidth>, <RoomDepth>, <RoomTemperature>.
 
 # Table measurements
-c:TableWidth a c:Width;
+<TableWidth> a c:Length;
    rdfs:label "Table width";
-   c:MeasurementOf c:Table;
+   c:MeasurementOf <Table>;
    c:MeasuredValue "1.600"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
    c:UncertaintyPercent "0.0625"^^xs:float;
    c:ErrorAbsolute "0.002"^^xs:float;
    c:ErrorPercent "0.125"^^xs:float.
 
-c:TableDepth a c:Depth;
+<TableDepth> a c:Length;
    rdfs:label "Table depth";
    c:MeasurementOf c:Table;
    c:MeasuredValue "0.800"^^xs:float;
@@ -265,7 +237,7 @@ c:TableDepth a c:Depth;
    c:ErrorAbsolute "0.001"^^xs:float;
    c:ErrorPercent "0.125"^^xs:float.
 
-c:TableHeight a c:Height;
+<TableHeight> a c:Length;
    rdfs:label "Table height";
    c:MeasurementOf c:Table;
    c:MeasuredValue "0.750"^^xs:float;
@@ -274,7 +246,7 @@ c:TableHeight a c:Height;
    c:ErrorAbsolute "0.0"^^xs:float;
    c:ErrorPercent "0.0"^^xs:float.
 
-c:TableMass a c:Mass;
+<TableMass> a c:Mass;
    rdfs:label "Table mass";
    c:MeasurementOf c:Table;
    c:MeasuredValue "25.0"^^xs:float;
@@ -284,7 +256,7 @@ c:TableMass a c:Mass;
    c:ErrorPercent "0.806"^^xs:float.
 
 # Water bottle measurements
-c:BottleHeight a c:Height;
+<BottleHeight> a c:Lenght;
    rdfs:label "Bottle height";
    c:MeasurementOf c:WaterBottle;
    c:MeasuredValue "0.210"^^xs:float;
@@ -293,7 +265,7 @@ c:BottleHeight a c:Height;
    c:ErrorAbsolute "0.001"^^xs:float;
    c:ErrorPercent "0.476"^^xs:float.
 
-c:BottleMass a c:Mass;
+<BottleMass> a c:Mass;
    rdfs:label "Bottle mass";
    c:MeasurementOf c:WaterBottle;
    c:MeasuredValue "0.530"^^xs:float;
@@ -303,7 +275,7 @@ c:BottleMass a c:Mass;
    c:ErrorPercent "1.923"^^xs:float.
 
 # Room measurements
-c:RoomWidth a c:Width;
+<RoomWidth> a c:Lenght;
    rdfs:label "Room width";
    c:MeasurementOf c:Room;
    c:MeasuredValue "4.00"^^xs:float;
@@ -312,7 +284,7 @@ c:RoomWidth a c:Width;
    c:ErrorAbsolute "0.02"^^xs:float;
    c:ErrorPercent "0.503"^^xs:float.
 
-c:RoomDepth a c:Depth;
+<RoomDepth> a c:Lenght;
    rdfs:label "Room depth";
    c:MeasurementOf c:Room;
    c:MeasuredValue "3.00"^^xs:float;
@@ -321,7 +293,7 @@ c:RoomDepth a c:Depth;
    c:ErrorAbsolute "0.01"^^xs:float;
    c:ErrorPercent "0.332"^^xs:float.
 
-c:RoomTemperature a c:Temperature;
+<RoomTemperature> a c:Temperature;
    rdfs:label "Room temperature";
    c:MeasurementOf c:Room;
    c:MeasuredValue "295.15"^^xs:float;
