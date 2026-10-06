@@ -200,6 +200,36 @@ c:MeasurementOf a owl:ObjectProperty,
 
 ### ABox ###
 
+# backbone
+
+c:Length a c:SIMeasurement;
+   rdfs:label "length";
+   skos:definition "length of a physical thing"@en;
+   c:SIUnit "m".
+
+
+c:Width a c:Length;
+   rdfs:label "width";
+   skos:definition "width of a physical thing"@en.
+
+c:Depth a c:Length;
+   rdfs:label "depth";
+   skos:definition "depth of a physical thing"@en.
+
+c:Height a c:Length;
+   rdfs:label "height";
+   skos:definition "height of a physical thing"@en.
+
+c:Mass a c:SIMeasurement;
+   rdfs:label "mass";
+   skos:definition "mass of a physical thing"@en;
+   c:SIUnit "kg".
+
+c:Temperature a c:SIMeasurement;
+   rdfs:label "temperature";
+   skos:definition "temperature of a physical thing"@en;
+   c:SIUnit "K".
+
 # Things
 d:Table a c:PhysicalThing;
    c:Name "table";
@@ -220,7 +250,6 @@ d:Room a c:PhysicalThing;
 d:TableWidth a c:Width;
    rdfs:label "Table width";
    c:MeasurementOf d:Table;
-   c:SIUnit "m";
    c:MeasuredValue "1.600"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
    c:UncertaintyPercent "0.0625"^^xs:float;
@@ -230,7 +259,6 @@ d:TableWidth a c:Width;
 d:TableDepth a c:Depth;
    rdfs:label "Table depth";
    c:MeasurementOf d:Table;
-   c:SIUnit "m";
    c:MeasuredValue "0.800"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
    c:UncertaintyPercent "0.125"^^xs:float;
@@ -240,7 +268,6 @@ d:TableDepth a c:Depth;
 d:TableHeight a c:Height;
    rdfs:label "Table height";
    c:MeasurementOf d:Table;
-   c:SIUnit "m";
    c:MeasuredValue "0.750"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
    c:UncertaintyPercent "0.133"^^xs:float;
@@ -250,7 +277,6 @@ d:TableHeight a c:Height;
 d:TableMass a c:Mass;
    rdfs:label "Table mass";
    c:MeasurementOf d:Table;
-   c:SIUnit "kg";
    c:MeasuredValue "25.0"^^xs:float;
    c:UncertaintyAbsolute "0.1"^^xs:float;
    c:UncertaintyPercent "0.4"^^xs:float;
@@ -261,7 +287,6 @@ d:TableMass a c:Mass;
 d:BottleHeight a c:Height;
    rdfs:label "Bottle height";
    c:MeasurementOf d:WaterBottle;
-   c:SIUnit "m";
    c:MeasuredValue "0.210"^^xs:float;
    c:UncertaintyAbsolute "0.001"^^xs:float;
    c:UncertaintyPercent "0.476"^^xs:float;
@@ -271,7 +296,6 @@ d:BottleHeight a c:Height;
 d:BottleMass a c:Mass;
    rdfs:label "Bottle mass";
    c:MeasurementOf d:WaterBottle;
-   c:SIUnit "kg";
    c:MeasuredValue "0.530"^^xs:float;
    c:UncertaintyAbsolute "0.005"^^xs:float;
    c:UncertaintyPercent "0.943"^^xs:float;
@@ -282,7 +306,6 @@ d:BottleMass a c:Mass;
 d:RoomWidth a c:Width;
    rdfs:label "Room width";
    c:MeasurementOf d:Room;
-   c:SIUnit "m";
    c:MeasuredValue "4.00"^^xs:float;
    c:UncertaintyAbsolute "0.01"^^xs:float;
    c:UncertaintyPercent "0.25"^^xs:float;
@@ -292,7 +315,6 @@ d:RoomWidth a c:Width;
 d:RoomDepth a c:Depth;
    rdfs:label "Room depth";
    c:MeasurementOf d:Room;
-   c:SIUnit "m";
    c:MeasuredValue "3.00"^^xs:float;
    c:UncertaintyAbsolute "0.01"^^xs:float;
    c:UncertaintyPercent "0.333"^^xs:float;
@@ -302,7 +324,6 @@ d:RoomDepth a c:Depth;
 d:RoomTemperature a c:Temperature;
    rdfs:label "Room temperature (22 C)";
    c:MeasurementOf d:Room;
-   c:SIUnit "K";
    c:MeasuredValue "295.15"^^xs:float;
    c:UncertaintyAbsolute "0.5"^^xs:float;
    c:UncertaintyPercent "0.169"^^xs:float;
