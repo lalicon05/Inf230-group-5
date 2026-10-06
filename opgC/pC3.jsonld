@@ -60,7 +60,7 @@
         "@type": "c:Mass",
         "c:Name": "TableMass",
         "c:MeasurementOf": "c:Table",
-        "c:MeasuredValue": 0.750,
+        "c:MeasuredValue": 25.0,
         "c:UncertaintyAbsolute": 0.001,
         "c:ErrorAbsolute": 0.0
     },
