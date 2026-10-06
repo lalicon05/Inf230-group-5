@@ -1,19 +1,75 @@
 {
     "@context": {
-    "c": "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-C.html#",
-    "abox": "https://home.bawue.de/~horsch/teaching/inf230/lab/data#",
-    "xs": "http://www.w3.org/2001/XMLSchema#",
-    "Name": { "@id": "c:Name", "@language": "en" },
-    "HasMeasurement": { "@id": "c:HasMeasurement", "@type": "@id" },
-    "MeasurementOf": { "@id": "c:MeasurementOf", "@type": "@id" },
-    "SIUnit": "c:SIUnit",
-    "MeasuredValue": { "@id": "c:MeasuredValue", "@type": "xs:float" },
-    "MinimumValue": { "@id": "c:MinimumValue", "@type": "xs:float" },
-    "MaximumValue": { "@id": "c:MaximumValue", "@type": "xs:float" },
-    "UncertaintyAbsolute": { "@id": "c:UncertaintyAbsolute", "@type": "xs:float" },
-    "UncertaintyPercent": { "@id": "c:UncertaintyPercent", "@type": "xs:float" },
-    "ErrorAbsolute": { "@id": "c:ErrorAbsolute", "@type": "xs:float" },
-    "ErrorPercent": { "@id": "c:ErrorPercent", "@type": "xs:float" }
+        "c": "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-C.html#",
+        "abox": "https://home.bawue.de/~horsch/teaching/inf230/lab/data#",
+        "xs": "http://www.w3.org/2001/XMLSchema#",
+        "Name": { "@id": "c:Name", "@language": "en" },
+        "HasMeasurement": { "@id": "c:HasMeasurement", "@type": "@id" },
+        "MeasurementOf": { "@id": "c:MeasurementOf", "@type": "@id" },
+        "SIUnit": "c:SIUnit",
+        "MeasuredValue": { "@id": "c:MeasuredValue", "@type": "xs:float" },
+        "MinimumValue": { "@id": "c:MinimumValue", "@type": "xs:float" },
+        "MaximumValue": { "@id": "c:MaximumValue", "@type": "xs:float" },
+        "UncertaintyAbsolute": { "@id": "c:UncertaintyAbsolute", "@type": "xs:float" },
+        "UncertaintyPercent": { "@id": "c:UncertaintyPercent", "@type": "xs:float" },
+        "ErrorAbsolute": { "@id": "c:ErrorAbsolute", "@type": "xs:float" },
+        "ErrorPercent": { "@id": "c:ErrorPercent", "@type": "xs:float" }
     },
-    "@graph"
+    "@graph": [
+    {
+        "@id": "Table",
+        "@type": "c:PhysicalThing",
+        "c:Name": "Table",
+        "c:HasMeasurement": [
+            "c:TableWidth",
+            "c:TableHeight",
+            "c:TableDepth",
+            "c:TableMass"
+        ]
+    },
+    {
+        "@id": "TableWidth",
+        "@type": "c:Length",
+        "c:Name": "TableWidth",
+        "c:MeasurementOf": "Table",
+        "c:MeasuredValue": 1.600,
+        "c:UncertaintyAbsolute": 0.001,
+        "c:UncertaintyPercent": 0.0625,
+        "c:ErrorAbsolute": 0.002,
+        "c:ErrorPercent": 0.125
+    },
+    {
+        "@id": "TableHeight",
+        "@type": "c:Length",
+        "c:Name": "TableHeight",
+        "c:MeasurementOf": "Table",
+        "c:MeasuredValue": 0.750,
+        "c:UncertaintyAbsolute": 0.001,
+        "c:UncertaintyPercent": 0.133,
+        "c:ErrorAbsolute": 0.0,
+        "c:ErrorPercent": 0.0
+    },
+    {
+        "@id": "TableDepth",
+        "@type": "c:Length",
+        "c:Name": "TableDepth",
+        "c:MeasurementOf": "Table",
+        "c:MeasuredValue": 0.800,
+        "c:UncertaintyAbsolute": 0.001,
+        "c:UncertaintyPercent": 0.125,
+        "c:ErrorAbsolute": 0.001,
+        "c:ErrorPercent": 0.125
+    },
+    {
+        "@id": "TableMass",
+        "@type": "c:Mass",
+        "c:Name": "TableMass",
+        "c:MeasurementOf": "c:Table",
+        "c:MeasuredValue": 0.750,
+        "c:UncertaintyAbsolute": 0.001,
+        "c:UncertaintyPercent": 0.133,
+        "c:ErrorAbsolute": 0.0,
+        "c:ErrorPercent": 0.0
+    }
+]
 }
