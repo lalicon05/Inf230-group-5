@@ -47,7 +47,7 @@ c:Measurement a owl:Class;
     rdfs:subClassOf [
       a owl:Restriction;
       owl:onProperty c:MeasurementOf;
-      owl:minCardinality "1"
+      owl:cardinality "1"
    ];
    rdfs:subClassOf [
       a owl:Restriction;
@@ -188,18 +188,27 @@ c:MeasurementOf a owl:ObjectProperty,
 ### ========================= ABox ========================== ###
 
 # length is a length measurement
-# breath is a length measurement
+# Width is a length measurement
 # hight is a length measurement
 
 # m is a mass measurement
 # k is a temperature measurement
 
 # table has length, breath, hight as measurements and mass
-# water has length, breath, hight as measurements and mass
+# waterbottle has length, breath, hight as measurements and mass
 # room has length, breath, hight as measurements and temperature
 
+abox: table a c:PhysicalThing;
+   c:Name "table";
+   c:HasMeasurement c:Length = 2000 mm, c:Width = 1000 mm, c:Hight = 500 mm, c:Mass = 10 kg.
 
+waterbottle a c:PhysicalThing;
+   c:Name "waterbottle";
+   c:HasMeasurement c:Length = 100 mm, c:Width = 500 mm, c:Hight = 200 mm, c:Mass = 5 kg.
 
+room a c:PhysicalThing;
+   c:Name "room";
+   c:HasMeasurement c:Length = 3000 mm, c:Breath = 2000 mm, c:Hight = 2500 mm, c:Temperature = 25 °C.
 
 #<TableLength> a c:Length;
 #   c:SIUnit "m";
