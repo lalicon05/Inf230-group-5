@@ -187,6 +187,20 @@ c:MeasurementOf a owl:ObjectProperty,
 
 ### ABox ###
 
+# length is a length measurement
+# breath is a length measurement
+# hight is a length measurement
+
+# m is a mass measurement
+# k is a temperature measurement
+
+# table has length, breath, hight as measurements and mass
+# water has length, breath, hight as measurements and mass
+# room has length, breath, hight as measurements and temperature
+
+
+
+
 #<TableLength> a c:Length;
 #   c:SIUnit "m";
 #   c:MeasuredValue "30.4";
