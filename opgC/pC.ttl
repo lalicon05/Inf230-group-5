@@ -185,7 +185,7 @@ c:MeasurementOf a owl:ObjectProperty,
 
 
 
-### ABox ###
+### ========================= ABox ========================== ###
 
 # length is a length measurement
 # breath is a length measurement
@@ -207,3 +207,26 @@ c:MeasurementOf a owl:ObjectProperty,
 #   c:UncertaintyAbsolute "0.7";
 #   c:ErrorAbsolute "0";
 #   c:ErrorPercent "0".
+
+#
+# 12 individuals (3 PhysicalThing + 9 Measurement), 18 relationships
+# (c:HasMeasurement / c:MeasurementOf, 9 each). Individuals live in the
+# abox: namespace, kept separate from the c: (TBox) namespace.
+
+### Physical things ###
+
+abox:Laptop a c:PhysicalThing;
+   c:Name: "Laptop";
+   c:HasMeasurement abox:Laptop_Length, abox:Laptop_Width, abox:Laptop_Height, abox:Laptop_Mass;
+
+# measurements ==================================================
+abox:Laptop_Length a c:Length;
+   c:MeasurementOf abox:Laptop;
+   c:SIUnit "m";
+   c:MeasuredValue "0.30"^^xs:float;
+   c:MinimumValue "0.29"^^xs:float;
+   c:MaximumValue "0.31"^^xs:float;
+   c:UncertaintyAbsolute "0.02"^^xs:float;
+   c:UncertaintyPercent "0.667"^^xs:float;
+   c:ErrorAbsolute "0.01"^^xs:float;
+   c:ErrorPercent "0.033"^^xs:float;
