@@ -231,17 +231,17 @@ c:Temperature a c:SIMeasurement;
    c:SIUnit "K".
 
 # Things
-c:Table a c:PhysicalThing;
+c:<Table> a c:PhysicalThing;
    c:Name "table";
    rdfs:label "Table";
    c:HasMeasurement c:TableWidth, c:TableDepth, c:TableHeight, c:TableMass.
 
-c:WaterBottle a c:PhysicalThing;
+c:<WaterBottle> a c:PhysicalThing;
    c:Name "water bottle";
    rdfs:label "Water bottle (0.5 L, full)";
    c:HasMeasurement c:BottleHeight, c:BottleMass.
 
-c:Room a c:PhysicalThing;
+c:<Room> a c:PhysicalThing;
    c:Name "room";
    rdfs:label "Room";
    c:HasMeasurement c:RoomWidth, c:RoomDepth, c:RoomTemperature.
