@@ -70,6 +70,38 @@
         "c:UncertaintyPercent": 0.133,
         "c:ErrorAbsolute": 0.0,
         "c:ErrorPercent": 0.0
+    },
+
+    {
+        "@id": "Bottle",
+        "@type": "c:PhysicalThing",
+        "c:Name": "Bottle",
+        "c:HasMeasurement": [
+            "c:BottleHeight",
+            "c:BottleMass"
+        ]
+    },
+    {
+        "@id": "BottleHeight",
+        "@type": "c:Length",
+        "c:Name": "BottleHeight",
+        "c:MeasurementOf": "Bottle",
+        "c:MeasuredValue": 0.210,
+        "c:UncertaintyAbsolute": 0.001,
+        "c:UncertaintyPercent": 0.476,
+        "c:ErrorAbsolute": 0.001,
+        "c:ErrorPercent": 0.476
+    },
+    {
+        "@id": "BottleMass",
+        "@type": "c:Mass",
+        "c:Name": "BottleMass",
+        "c:MeasurementOf": "c:Bottle",
+        "c:MeasuredValue": 0.530,
+        "c:UncertaintyAbsolute": 0.005,
+        "c:UncertaintyPercent": 0.943,
+        "c:ErrorAbsolute": 0.010,
+        "c:ErrorPercent": 1.923
     }
 ]
 }
