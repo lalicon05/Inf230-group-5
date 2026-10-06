@@ -203,17 +203,17 @@ c:MeasurementOf a owl:ObjectProperty,
 # backbone
 
 # Things
-c:<Table> a c:PhysicalThing;
+<Table> a c:PhysicalThing;
    c:Name "table";
    rdfs:label "Table";
    c:HasMeasurement <TableWidth>, <TableDepth>, <TableHeight>, <TableMass>.
 
-c:<WaterBottle> a c:PhysicalThing;
+<WaterBottle> a c:PhysicalThing;
    c:Name "water bottle";
    rdfs:label "Water bottle (0.5 L, full)";
    c:HasMeasurement <BottleHeight>, <BottleMass>.
 
-c:<Room> a c:PhysicalThing;
+<Room> a c:PhysicalThing;
    c:Name "room";
    rdfs:label "Room";
    c:HasMeasurement <RoomWidth>, <RoomDepth>, <RoomTemperature>.
