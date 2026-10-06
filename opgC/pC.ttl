@@ -256,7 +256,7 @@ c:MeasurementOf a owl:ObjectProperty,
    c:ErrorPercent "0.806"^^xs:float.
 
 # Water bottle measurements
-<BottleHeight> a c:Lenght;
+<BottleHeight> a c:Length;
    rdfs:label "Bottle height";
    c:MeasurementOf c:WaterBottle;
    c:MeasuredValue "0.210"^^xs:float;
@@ -275,7 +275,7 @@ c:MeasurementOf a owl:ObjectProperty,
    c:ErrorPercent "1.923"^^xs:float.
 
 # Room measurements
-<RoomWidth> a c:Lenght;
+<RoomWidth> a c:Length;
    rdfs:label "Room width";
    c:MeasurementOf c:Room;
    c:MeasuredValue "4.00"^^xs:float;
@@ -284,7 +284,7 @@ c:MeasurementOf a owl:ObjectProperty,
    c:ErrorAbsolute "0.02"^^xs:float;
    c:ErrorPercent "0.503"^^xs:float.
 
-<RoomDepth> a c:Lenght;
+<RoomDepth> a c:Length;
    rdfs:label "Room depth";
    c:MeasurementOf c:Room;
    c:MeasuredValue "3.00"^^xs:float;
