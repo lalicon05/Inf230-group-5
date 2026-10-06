@@ -1,0 +1,19 @@
+{
+    "@context": {
+    "c": "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-C.html#",
+    "abox": "https://home.bawue.de/~horsch/teaching/inf230/lab/data#",
+    "xs": "http://www.w3.org/2001/XMLSchema#",
+    "Name": { "@id": "c:Name", "@language": "en" },
+    "HasMeasurement": { "@id": "c:HasMeasurement", "@type": "@id" },
+    "MeasurementOf": { "@id": "c:MeasurementOf", "@type": "@id" },
+    "SIUnit": "c:SIUnit",
+    "MeasuredValue": { "@id": "c:MeasuredValue", "@type": "xs:float" },
+    "MinimumValue": { "@id": "c:MinimumValue", "@type": "xs:float" },
+    "MaximumValue": { "@id": "c:MaximumValue", "@type": "xs:float" },
+    "UncertaintyAbsolute": { "@id": "c:UncertaintyAbsolute", "@type": "xs:float" },
+    "UncertaintyPercent": { "@id": "c:UncertaintyPercent", "@type": "xs:float" },
+    "ErrorAbsolute": { "@id": "c:ErrorAbsolute", "@type": "xs:float" },
+    "ErrorPercent": { "@id": "c:ErrorPercent", "@type": "xs:float" }
+    },
+    "@graph"
+}
