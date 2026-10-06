@@ -34,9 +34,8 @@
         "c:MeasurementOf": "c:Table",
         "c:MeasuredValue": 1.600,
         "c:UncertaintyAbsolute": 0.001,
-        "c:UncertaintyPercent": 0.0625,
-        "c:ErrorAbsolute": 0.002,
-        "c:ErrorPercent": 0.125
+        "c:ErrorAbsolute": 0.002
+
     },
     {
         "@id": "TableHeight",
@@ -45,9 +44,7 @@
         "c:MeasurementOf": "c:Table",
         "c:MeasuredValue": 0.750,
         "c:UncertaintyAbsolute": 0.001,
-        "c:UncertaintyPercent": 0.133,
-        "c:ErrorAbsolute": 0.0,
-        "c:ErrorPercent": 0.0
+        "c:ErrorAbsolute": 0.0
     },
     {
         "@id": "TableDepth",
@@ -56,9 +53,7 @@
         "c:MeasurementOf": "c:Table",
         "c:MeasuredValue": 0.800,
         "c:UncertaintyAbsolute": 0.001,
-        "c:UncertaintyPercent": 0.125,
-        "c:ErrorAbsolute": 0.001,
-        "c:ErrorPercent": 0.125
+        "c:ErrorAbsolute": 0.001
     },
     {
         "@id": "TableMass",
@@ -67,9 +62,7 @@
         "c:MeasurementOf": "c:Table",
         "c:MeasuredValue": 0.750,
         "c:UncertaintyAbsolute": 0.001,
-        "c:UncertaintyPercent": 0.133,
-        "c:ErrorAbsolute": 0.0,
-        "c:ErrorPercent": 0.0
+        "c:ErrorAbsolute": 0.0
     },
     {
         "@id": "Room",
@@ -88,9 +81,7 @@
         "c:MeasurementOf": "c:Room",
         "c:MeasuredValue": 4.00,
         "c:UncertaintyAbsolute": 0.01,
-        "c:UncertaintyPercent": 0.25,
-        "c:ErrorAbsolute": 0.02,
-        "c:ErrorPercent": 0.503
+        "c:ErrorAbsolute": 0.02
     },
     {
         "@id": "RoomDepth",
@@ -99,9 +90,7 @@
         "c:MeasurementOf": "c:Room",
         "c:MeasuredValue": 3.00,
         "c:UncertaintyAbsolute": 0.01,
-        "c:UncertaintyPercent": 0.333,
-        "c:ErrorAbsolute": 0.01,
-        "c:ErrorPercent": 0.332
+        "c:ErrorAbsolute": 0.01
     },
     {
         "@id": "RoomTemperature",
@@ -110,41 +99,7 @@
         "c:MeasurementOf": "c:Room",
         "c:MeasuredValue": 295.15,
         "c:UncertaintyAbsolute": 0.5,
-        "c:UncertaintyPercent": 0.169,
-        "c:ErrorAbsolute": 0.3,
-        "c:ErrorPercent": 0.102
-    },
-
-    {
-        "@id": "WaterBottle",
-        "@type": "c:PhysicalThing",
-        "c:Name": "WaterBottle",
-        "c:HasMeasurement": [
-            "c:BottleHeight",
-            "c:BottleMass"
-        ]
-    },
-    {
-        "@id": "BottleHeight",
-        "@type": "c:Length",
-        "c:Name": "BottleHeight",
-        "c:MeasurementOf": "c:WaterBottle",
-        "c:MeasuredValue": 0.210,
-        "c:UncertaintyAbsolute": 0.001,
-        "c:UncertaintyPercent": 0.476,
-        "c:ErrorAbsolute": 0.001,
-        "c:ErrorPercent": 0.476
-    },
-    {
-        "@id": "BottleMass",
-        "@type": "c:Mass",
-        "c:Name": "BottleMass",
-        "c:MeasurementOf": "c:WaterBottle",
-        "c:MeasuredValue": 0.530,
-        "c:UncertaintyAbsolute": 0.005,
-        "c:UncertaintyPercent": 0.943,
-        "c:ErrorAbsolute": 0.010,
-        "c:ErrorPercent": 1.923
+        "c:ErrorAbsolute": 0.3
     }
 ]
 }
