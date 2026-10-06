@@ -195,11 +195,20 @@ c:MeasurementOf a owl:ObjectProperty,
 # k is a temperature measurement
 
 # table has length, breath, hight as measurements and mass
-# water has length, breath, hight as measurements and mass
+# waterbottle has length, breath, hight as measurements and mass
 # room has length, breath, hight as measurements and temperature
 
+table a c:PhysicalThing;
+   c:Name "table";
+   c:HasMeasurement c:Length, c:Breath, c:Hight, c:Mass.
 
+waterbottle a c:PhysicalThing;
+   c:Name "waterbottle";
+   c:HasMeasurement c:Length, c:Breath, c:Hight, c:Mass.
 
+room a c:PhysicalThing;
+   c:Name "room";
+   c:HasMeasurement c:Length, c:Breath, c:Hight, c:Temperature.
 
 #<TableLength> a c:Length;
 #   c:SIUnit "m";
