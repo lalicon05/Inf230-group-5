@@ -1,0 +1,58 @@
+drop database INF230D;
+create database INF230D;
+use INF230D;
+
+create table measurements(
+    measurement_id smallint,
+    measurement_title varchar(32),
+    MeasuredValue float,
+    UncertaintyAbsolute float,
+    ErrorAbsolute float,
+    is_SI bool,
+    is_length bool,
+    is_mass bool,
+    is_time bool,
+    is_ElectricCurrent bool,
+    is_temperature bool,
+    is_mol bool,
+
+    primary key(measurement_id)
+);
+
+create table PhysicalThing(
+    physical_thing_id smallint,
+    physical_thing_title varchar(32),
+    primary key(physical_thing_id)
+);
+
+create table hasMeasurement(
+    measurement_id smallint,
+    physical_thing_id smallint,
+    primary key(measurement_id, physical_thing_id),
+    
+    foreign key(measurement_id) references measurements,
+    foreign key(physical_thing_id) references PhysicalThing
+);
+
+insert into PhysicalThing values
+     (1, 'Table'),
+     (2, 'Room');
+
+insert into measurements values
+    (1, 'TableWidth', 1.600, 0.001, 0.002, true, true, false, false, false, false, false),
+    (2, 'TableDepth', 0.800, 0.001, 0.001, true, true, false, false, false, false, false),
+    (3, 'TableHeight', 0.750, 0.001, 0.0, true, true, false, false, false, false, false),
+    (4, 'TableMass', 25.0, 0.1, 0.2, true, false, true, false, false, false, false),
+    (5, 'RoomWidth', 4.0, 0.01, 0.02, true, true, false, false, false, false, false),
+    (6, 'RoomDepth', 3.0, 0.01, 0.01, true, true, false, false, false, false, false),
+    (7, 'RoomTemperature', 295.15, 0.5, 0.3, true, false, false, false, false, true, false);
+
+
+insert into hasMeasurement values
+    (1, 1),
+    (2, 1),
+    (3, 1),
+    (4, 1),
+    (5, 2),
+    (6, 2),
+    (7, 2);
