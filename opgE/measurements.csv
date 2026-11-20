@@ -1,0 +1,8 @@
+measurement_id,measurement_title,MeasuredValue,UncertaintyAbsolute,ErrorAbsolute,is_SI,is_length,is_mass,is_time,is_ElectricCurrent,is_temperature,is_mol
+1,'TableWidth',1.600,0.001,0.002,true,true,false,false,false,false,false
+2,'TableDepth',0.800,0.001,0.001,true,true,false,false,false,false,false
+3,'TableHeight',0.750,0.001,0.0,true,true,false,false,false,false,false
+4,'TableMass',25.0,0.1,0.2,true,false,true,false,false,false,false
+5,'RoomWidth',4.0,0.01,0.02,true,true,false,false,false,false,false
+6,'RoomDepth',3.0,0.01,0.01,true,true,false,false,false,false,false
+7,'RoomTemperature',295.15,0.5,0.3,true,false,false,false,false,true,false
