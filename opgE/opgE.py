@@ -42,5 +42,76 @@ create table hasMeasurement (
     foreign key (physical_thing_id) references PhysicalThing(physical_thing_id)
 )""")
 
+
+def rows(name):
+    with (BASE / name).open(newline="", encoding="utf-8") as f:
+        return [
+            {k: v.strip().strip("'").strip('"') for k, v in row.items()}
+            for row in csv.DictReader(f)
+        ]
+
+
+for r in rows("PhysicalThing.csv"):
+    cur.execute(
+        "insert into PhysicalThing values (?,?)",
+        (int(r["physical_thing_id"]), r["physical_thing_title"]),
+    )
+
+for r in rows("measurements.csv"):
+    cur.execute(
+        "insert into measurements values (?,?,?,?,?,?,?,?,?,?,?,?)",
+        (
+            int(r["measurement_id"]),
+            r["measurement_title"],
+            *(
+                float(r[k])
+                for k in ("MeasuredValue", "UncertaintyAbsolute", "ErrorAbsolute")
+            ),
+            *(
+                r[k].lower() == "true"
+                for k in (
+                    "is_SI",
+                    "is_length",
+                    "is_mass",
+                    "is_time",
+                    "is_ElectricCurrent",
+                    "is_temperature",
+                    "is_mol",
+                )
+            ),
+        ),
+    )
+
+for r in rows("hasMeasurement.csv"):
+    cur.execute(
+        "insert into hasMeasurement values (?,?)",
+        (int(r["measurement_id"]), int(r["physical_thing_id"])),
+    )
+
+db.commit()
+
+print("Database inf230e created and CSV data inserted successfully.")
+for table in ("PhysicalThing", "measurements", "hasMeasurement"):
+    cur.execute(f"select count(*) from {table}")
+    print(f"{table}: {cur.fetchone()[0]} rows")
+
+cur.execute("""
+select
+    p.physical_thing_id,
+    p.physical_thing_title,
+    m.measurement_id,
+    m.measurement_title,
+    m.MeasuredValue,
+    m.UncertaintyAbsolute,
+    m.ErrorAbsolute
+from PhysicalThing p
+join hasMeasurement h on h.physical_thing_id = p.physical_thing_id
+join measurements m on m.measurement_id = h.measurement_id
+order by p.physical_thing_id, m.measurement_id
+""")
+print("\nStored measurements:")
+for row in cur:
+    print(row)
+
 cur.close()
 db.close()
