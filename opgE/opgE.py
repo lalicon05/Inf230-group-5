@@ -82,6 +82,7 @@ cur.execute("""
     )
     """)
 
+# add to measurements table
 rows = []
 
 with open("opgE/measurements.csv", 'r') as file:
@@ -99,4 +100,8 @@ for row in rows:
     cur.execute(f"insert into measurements values {row};")
     print(f"Inserted {row} into measurements")
 
+
+
 print("inserted rows into measurements")
+
+conn.commit() # <---------------- This god damn line
