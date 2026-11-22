@@ -1,4 +1,3 @@
-import rdflib
 import mariadb
 import sys
 
@@ -27,7 +26,6 @@ def get_rows(filepath: str) -> list:
             row += f'{line[-1]})'
             rows.append(row)
     return rows
-
 
 try:
     conn = mariadb.connect(
@@ -100,59 +98,23 @@ cur.execute("""
     )
     """)
 
+print("------------------------------------------------ Getting rows ------------------------------------------------")
 measurements = get_rows('opgE/measurements.csv')
 hasMeasurement = get_rows('opgE/hasMeasurement.csv')
 PhysicalThing = get_rows('opgE/PhysicalThing.csv')
 
+print("--------------------------------------------- Measurements ---------------------------------------------")
 for row in measurements:
     cur.execute(f"insert into measurements values {row};")
     print(f"Inserted {row} into measurements")
 
+print("--------------------------------------------- PhysicalThing ---------------------------------------------")
 for row in PhysicalThing:
     cur.execute(f"insert into PhysicalThing values {row};")
     print(f"Inserted {row} into PhysicalThing")
 
+print("--------------------------------------------- hasMeasurement ---------------------------------------------")
 for row in hasMeasurement:
-    cur.execute(f"insert into hasMeasurement values {row};")
-    print(f"Inserted {row} into hasMeasurement")
-
-
-# PhysicalThing 
-rows = []
-
-with open("opgE/PhysicalThing.csv", 'r') as file:
-    file.readline()
-    lines = file.readlines()
-    for line in lines:
-        line = line.strip().split(',')
-        row = "("
-        for item in line[:-1]:
-            row += f'{item}, '
-        row += f'{line[-1]})'
-        rows.append(row)
-
-print(rows)
-
-for row in rows:
-    cur.execute(f"insert into PhysicalThing values {row};")
-    print(f"Inserted {row} into PhysicalThing")
-
-
-# hasMeasurement
-rows = []
-
-with open("opgE/hasMeasurement.csv", 'r') as file:
-    file.readline()
-    lines = file.readlines()
-    for line in lines:
-        line = line.strip().split(',')
-        row = "("
-        for item in line[:-1]:
-            row += f'{item}, '
-        row += f'{line[-1]})'
-        rows.append(row)
-
-for row in rows:
     cur.execute(f"insert into hasMeasurement values {row};")
     print(f"Inserted {row} into hasMeasurement")
 
