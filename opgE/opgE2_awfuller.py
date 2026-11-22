@@ -86,15 +86,15 @@ for mes in mess:
     node = {
         "@id": f"e:{mes['measurement_title']}",
         "e:Name": mes["measurement_title"],
-        "e:MeasurementOf": f"e:{owner[mes]}",
+        "e:MeasurementOf": f"e:{owner[mes['measurement_id']]}",
         "e:MeasuredValue": round(mes["MeasuredValue"], 6), # round, because floating point shenanigans
-        "e:UncertaintyAbsolute": round(mes),
-        "e:ErrorAbsolute": round(mes),
+        "e:UncertaintyAbsolute": round(mes["UncertaintyAbsolute"], 6),
+        "e:ErrorAbsolute": round(mes["ErrorAbsolute"], 6),
     }
 
     for dict_thing, (cls, unit) in SI.items():
         if mes[dict_thing]:
-            node["@type"] = f"c:{cls}"
+            node["@type"] = f"e:{cls}"
             node["e:SIUnit"] = unit
     graph.append(node)
 
