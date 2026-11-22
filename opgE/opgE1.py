@@ -2,6 +2,33 @@ import rdflib
 import mariadb
 import sys
 
+
+def get_rows(filepath: str) -> list:
+    """
+    Processes a CSV file and returns a list of strings
+    where the strings are the rows of the CSV file
+    given in a SQL friendly syntax for\n
+    INSERT INTO *table* VALUES *row*
+
+    :param filepath: String of the relative path of the CSV file
+    """
+    rows = []  # List of SQL friendly value strings
+    with open(filepath, 'r') as file:
+        file.readline()  # Header
+        lines = file.readlines()
+        # Goes through each line in the CSV file
+        # Builds a string of each line in the format
+        # (val1, val2, val3, ..., valn)
+        for line in lines:
+            line = line.strip().split(',')
+            row = "("
+            for item in line[:-1]:
+                row += f'{item}, '
+            row += f'{line[-1]})'
+            rows.append(row)
+    return rows
+
+
 try:
     conn = mariadb.connect(
         user="group5",
@@ -15,15 +42,6 @@ try:
 except mariadb.Error as e:
     print(f"Error: {e}")
     sys.exit(1)
-
-
-"""
-measurements = pd.read_csv("opgE/measurements.csv")
-hasMeasurement = pd.read_csv("opgE/hasMeasurement.csv")
-PhysicalThing = pd.read_csv("opgE/PhysicalThing.csv")
-
-print(measurements.iloc[0].astype(str).tolist())
-"""
 
 cur = conn.cursor()
 
@@ -76,31 +94,27 @@ cur.execute("""
         measurement_id smallint,
         physical_thing_id smallint,
         primary key(measurement_id, physical_thing_id),
-        
+
         foreign key(measurement_id) references measurements,
         foreign key(physical_thing_id) references PhysicalThing
     )
     """)
 
-# add to measurements table
-rows = []
+measurements = get_rows('opgE/measurements.csv')
+hasMeasurement = get_rows('opgE/hasMeasurement.csv')
+PhysicalThing = get_rows('opgE/PhysicalThing.csv')
 
-with open("opgE/measurements.csv", 'r') as file:
-    file.readline()
-    lines = file.readlines()
-    for line in lines:
-        line = line.strip().split(',')
-        row = "("
-        for item in line[:-1]:
-            row += f'{item}, '
-        row += f'{line[-1]})'
-        rows.append(row)
-
-for row in rows:
+for row in measurements:
     cur.execute(f"insert into measurements values {row};")
     print(f"Inserted {row} into measurements")
 
+for row in PhysicalThing:
+    cur.execute(f"insert into PhysicalThing values {row};")
+    print(f"Inserted {row} into PhysicalThing")
 
+for row in hasMeasurement:
+    cur.execute(f"insert into hasMeasurement values {row};")
+    print(f"Inserted {row} into hasMeasurement")
 
 
 # PhysicalThing 
@@ -144,3 +158,4 @@ for row in rows:
 
 
 conn.commit() # <---------------- This god damn line
+conn.close()
