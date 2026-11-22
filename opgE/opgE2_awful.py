@@ -4,10 +4,18 @@ import json
 
 
 def get_dict(table: str):
+    """
+    Returns a dict of format
+    column_name: [values]
+
+    :param table: Table name
+    """
     cur.execute(f'SELECT * FROM {table}')
+    # Get column names
     cols = [col[0] for col in cur.description]
     rows = cur.fetchall()
     dict = {}
+    # Build the key value pair for each column
     for i in range(len(cols)):
         dict[cols[i]] = []
         for row in rows:
@@ -31,6 +39,7 @@ hasMeasurement = get_dict('hasMeasurement')
 
 json_dict = {}
 
+# Build context
 context = {
     "e": "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-E.html#",
     "xs": "http://www.w3.org/2001/XMLSchema#",
@@ -64,12 +73,18 @@ json_dict['@context'] = context
 
 graph = []
 
+# Build the PhysicalThing part of the graph
 for i in range(len(PhysicalThing["physical_thing_id"])):
+    # Create dict for this node
     graph.append({})
     node = graph[-1]
+
+    # Add id, type and name
     node["@id"] = f"e:{PhysicalThing["physical_thing_title"][i]}"
     node["@type"] = "e:PhysicalThing"
-    node["e:name"] = PhysicalThing["physical_thing_title"][i]
+    node["e:Name"] = PhysicalThing["physical_thing_title"][i]
+
+    # Find what measurements have been done on the thing
     node["e:HasMeasurement"] = []
     thing_id = PhysicalThing["physical_thing_id"][i]
     cur.execute(f'SELECT measurement_id FROM hasMeasurement where physical_thing_id = {thing_id}')
@@ -83,10 +98,16 @@ for i in range(len(PhysicalThing["physical_thing_id"])):
         for row in query:
             node["e:HasMeasurement"].append(f'e:{row[0]}')
 
+# Build the measurements part of the graph
 for i in range(len(measurements["measurement_id"])):
+    # Create dict for this node
     graph.append({})
     node = graph[-1]
+
+    # Add the id of measurement
     node["@id"] = f'e:{measurements['measurement_title'][i]}'
+
+    # Find the SI unit type
     if measurements['is_length'][i]:
         node["@type"] = 'e:length'
     elif measurements['is_mass'][i]:
@@ -99,12 +120,16 @@ for i in range(len(measurements["measurement_id"])):
         node["@type"] = 'e:temperature'
     elif measurements['is_mol'][i]:
         node["@type"] = 'e:mol'
+
+    # Add the name of measurement
+    node['e:Name'] = measurements['measurement_title'][i]
+
+    # Find the PhysicalThing title of what is being measured
     cur.execute(
         f'SELECT physical_thing_id FROM hasMeasurement where measurement_id = {
             measurements['measurement_id'][i]
             }'
         )
-    node['e:Name'] = measurements['measurement_title'][i]
     query = cur.fetchall()
     physical_thing_id = query[0][0]
     cur.execute(
@@ -115,6 +140,8 @@ for i in range(len(measurements["measurement_id"])):
     query = cur.fetchall()
     thing_title = query[0][0]
     node["e:MeasurementOf"] = thing_title
+
+    # Number values of measurement
     node["e:MeasuredValue"] = measurements["MeasuredValue"][i]
     node["e:UncertaintyAbsolute"] = measurements["UncertaintyAbsolute"][i]
     node["e:ErrorAbsolute"] = measurements["ErrorAbsolute"][i]
