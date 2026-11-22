@@ -26,7 +26,7 @@ things = cur.fetchall()
 
 # get all from measurements
 cur.execute("select * from measurements")
-mes = cur.fetchall()
+mess = cur.fetchall()
 
 # get owners for measurements
 cur.execute("""
@@ -70,3 +70,38 @@ SI = {
 }
 
 graph = []
+
+# one per thing
+for thing in things:
+    title = thing["physical_thing_title"]
+    graph.append({"@id": f"e:{title}",
+        "@type": "e:PhysicalThing", #         ||
+        "e:Name": title, #                    ||
+        # Denne linjen var da fryktelig stygg \/
+        "e:HasMeasurement": [f"e:{m['measurement_title']}" for m in mess if owner[m["measurement_id"]] == title]})
+
+# one per measurement
+
+for mes in mess:
+    node = {
+        "@id": f"e:{mes['measurement_title']}",
+        "e:Name": mes["measurement_title"],
+        "e:MeasurementOf": f"e:{owner[mes]}",
+        "e:MeasuredValue": round(mes["MeasuredValue"], 6), # round, because floating point shenanigans
+        "e:UncertaintyAbsolute": round(mes),
+        "e:ErrorAbsolute": round(mes),
+    }
+
+    for dict_thing, (cls, unit) in SI.items():
+        if mes[dict_thing]:
+            node["@type"] = f"c:{cls}"
+            node["e:SIUnit"] = unit
+    graph.append(node)
+
+json_dict["@graph"] = graph
+
+with open("opgE/pE.jsonld", "w") as file:
+    json.dump(json_dict, file, indent=2)
+
+conn.close()
+print("done :)")
