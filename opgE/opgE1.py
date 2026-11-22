@@ -108,13 +108,13 @@ for row in measurements:
     cur.execute(f"insert into measurements values {row};")
     print(f"Inserted {row} into measurements")
 
-for row in hasMeasurement:
-    cur.execute(f"insert into hasMeasurement values {row};")
-    print(f"Inserted {row} into measurements")
-
 for row in PhysicalThing:
     cur.execute(f"insert into PhysicalThing values {row};")
-    print(f"Inserted {row} into measurements")
+    print(f"Inserted {row} into PhysicalThing")
+
+for row in hasMeasurement:
+    cur.execute(f"insert into hasMeasurement values {row};")
+    print(f"Inserted {row} into hasMeasurement")
 
 print("inserted rows into measurements")
 
