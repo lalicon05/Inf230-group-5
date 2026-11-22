@@ -1,116 +1,140 @@
 {
   "@context": {
-    "c": "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-C.html#",
+    "e": "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-E.html#",
     "xs": "http://www.w3.org/2001/XMLSchema#",
     "Name": {
-      "@id": "c:Name",
+      "@id": "e:Name",
       "@language": "en"
     },
     "HasMeasurement": {
-      "@id": "c:HasMeasurement",
+      "@id": "e:HasMeasurement",
       "@type": "@id"
     },
     "MeasurementOf": {
-      "@id": "c:MeasurementOf",
+      "@id": "e:MeasurementOf",
       "@type": "@id"
     },
+    "SIUnit": "e:SIUnit",
     "MeasuredValue": {
-      "@id": "c:MeasuredValue",
+      "@id": "e:MeasuredValue",
+      "@type": "xs:float"
+    },
+    "MinimumValue": {
+      "@id": "e:MinimumValue",
+      "@type": "xs:float"
+    },
+    "MaximumValue": {
+      "@id": "e:MaximumValue",
       "@type": "xs:float"
     },
     "UncertaintyAbsolute": {
-      "@id": "c:UncertaintyAbsolute",
+      "@id": "e:UncertaintyAbsolute",
+      "@type": "xs:float"
+    },
+    "UncertaintyPercent": {
+      "@id": "e:UncertaintyPercent",
       "@type": "xs:float"
     },
     "ErrorAbsolute": {
-      "@id": "c:ErrorAbsolute",
+      "@id": "e:ErrorAbsolute",
+      "@type": "xs:float"
+    },
+    "ErrorPercent": {
+      "@id": "e:ErrorPercent",
       "@type": "xs:float"
     }
   },
   "@graph": [
     {
-      "@id": "c:Table",
-      "@type": "c:PhysicalThing",
-      "c:Name": "Table",
-      "c:HasMeasurement": [
-        "c:TableWidth",
-        "c:TableDepth",
-        "c:TableHeight",
-        "c:TableMass"
+      "@id": "e:Table",
+      "@type": "e:PhysicalThing",
+      "e:Name": "Table",
+      "e:HasMeasurement": [
+        "e:TableWidth",
+        "e:TableDepth",
+        "e:TableHeight",
+        "e:TableMass"
       ]
     },
     {
-      "@id": "c:Room",
-      "@type": "c:PhysicalThing",
-      "c:Name": "Room",
-      "c:HasMeasurement": [
-        "c:RoomWidth",
-        "c:RoomDepth",
-        "c:RoomTemperature"
+      "@id": "e:Room",
+      "@type": "e:PhysicalThing",
+      "e:Name": "Room",
+      "e:HasMeasurement": [
+        "e:RoomWidth",
+        "e:RoomDepth",
+        "e:RoomTemperature"
       ]
     },
     {
-      "@id": "c:TableWidth",
-      "@type": "c:Length",
-      "c:Name": "TableWidth",
-      "c:MeasurementOf": "c:Table",
-      "c:MeasuredValue": 1.6,
-      "c:UncertaintyAbsolute": 0.001,
-      "c:ErrorAbsolute": 0.002
+      "@id": "e:TableWidth",
+      "e:Name": "TableWidth",
+      "e:MeasurementOf": "e:Table",
+      "e:MeasuredValue": 1.6,
+      "e:UncertaintyAbsolute": 0.001,
+      "e:ErrorAbsolute": 0.002,
+      "@type": "e:Length",
+      "e:SIUnit": "m"
     },
     {
-      "@id": "c:TableDepth",
-      "@type": "c:Length",
-      "c:Name": "TableDepth",
-      "c:MeasurementOf": "c:Table",
-      "c:MeasuredValue": 0.8,
-      "c:UncertaintyAbsolute": 0.001,
-      "c:ErrorAbsolute": 0.001
+      "@id": "e:TableDepth",
+      "e:Name": "TableDepth",
+      "e:MeasurementOf": "e:Table",
+      "e:MeasuredValue": 0.8,
+      "e:UncertaintyAbsolute": 0.001,
+      "e:ErrorAbsolute": 0.001,
+      "@type": "e:Length",
+      "e:SIUnit": "m"
     },
     {
-      "@id": "c:TableHeight",
-      "@type": "c:Length",
-      "c:Name": "TableHeight",
-      "c:MeasurementOf": "c:Table",
-      "c:MeasuredValue": 0.75,
-      "c:UncertaintyAbsolute": 0.001,
-      "c:ErrorAbsolute": 0.0
+      "@id": "e:TableHeight",
+      "e:Name": "TableHeight",
+      "e:MeasurementOf": "e:Table",
+      "e:MeasuredValue": 0.75,
+      "e:UncertaintyAbsolute": 0.001,
+      "e:ErrorAbsolute": 0.0,
+      "@type": "e:Length",
+      "e:SIUnit": "m"
     },
     {
-      "@id": "c:TableMass",
-      "@type": "c:Mass",
-      "c:Name": "TableMass",
-      "c:MeasurementOf": "c:Table",
-      "c:MeasuredValue": 25.0,
-      "c:UncertaintyAbsolute": 0.1,
-      "c:ErrorAbsolute": 0.2
+      "@id": "e:TableMass",
+      "e:Name": "TableMass",
+      "e:MeasurementOf": "e:Table",
+      "e:MeasuredValue": 25.0,
+      "e:UncertaintyAbsolute": 0.1,
+      "e:ErrorAbsolute": 0.2,
+      "@type": "e:Mass",
+      "e:SIUnit": "kg"
     },
     {
-      "@id": "c:RoomWidth",
-      "@type": "c:Length",
-      "c:Name": "RoomWidth",
-      "c:MeasurementOf": "c:Room",
-      "c:MeasuredValue": 4.0,
-      "c:UncertaintyAbsolute": 0.01,
-      "c:ErrorAbsolute": 0.02
+      "@id": "e:RoomWidth",
+      "e:Name": "RoomWidth",
+      "e:MeasurementOf": "e:Room",
+      "e:MeasuredValue": 4.0,
+      "e:UncertaintyAbsolute": 0.01,
+      "e:ErrorAbsolute": 0.02,
+      "@type": "e:Length",
+      "e:SIUnit": "m"
     },
     {
-      "@id": "c:RoomDepth",
-      "@type": "c:Length",
-      "c:Name": "RoomDepth",
-      "c:MeasurementOf": "c:Room",
-      "c:MeasuredValue": 3.0,
-      "c:UncertaintyAbsolute": 0.01,
-      "c:ErrorAbsolute": 0.01
+      "@id": "e:RoomDepth",
+      "e:Name": "RoomDepth",
+      "e:MeasurementOf": "e:Room",
+      "e:MeasuredValue": 3.0,
+      "e:UncertaintyAbsolute": 0.01,
+      "e:ErrorAbsolute": 0.01,
+      "@type": "e:Length",
+      "e:SIUnit": "m"
     },
     {
-      "@id": "c:RoomTemperature",
-      "@type": "c:Temperature",
-      "c:Name": "RoomTemperature",
-      "c:MeasurementOf": "c:Room",
-      "c:MeasuredValue": 295.15,
-      "c:UncertaintyAbsolute": 0.5,
-      "c:ErrorAbsolute": 0.3
+      "@id": "e:RoomTemperature",
+      "e:Name": "RoomTemperature",
+      "e:MeasurementOf": "e:Room",
+      "e:MeasuredValue": 295.15,
+      "e:UncertaintyAbsolute": 0.5,
+      "e:ErrorAbsolute": 0.3,
+      "@type": "e:Temperature",
+      "e:SIUnit": "K"
     }
   ]
 }
