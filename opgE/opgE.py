@@ -102,6 +102,45 @@ for row in rows:
 
 
 
-print("inserted rows into measurements")
+
+# PhysicalThing 
+rows = []
+
+with open("opgE/PhysicalThing.csv", 'r') as file:
+    file.readline()
+    lines = file.readlines()
+    for line in lines:
+        line = line.strip().split(',')
+        row = "("
+        for item in line[:-1]:
+            row += f'{item}, '
+        row += f'{line[-1]})'
+        rows.append(row)
+
+print(rows)
+
+for row in rows:
+    cur.execute(f"insert into PhysicalThing values {row};")
+    print(f"Inserted {row} into PhysicalThing")
+
+
+# hasMeasurement
+rows = []
+
+with open("opgE/hasMeasurement.csv", 'r') as file:
+    file.readline()
+    lines = file.readlines()
+    for line in lines:
+        line = line.strip().split(',')
+        row = "("
+        for item in line[:-1]:
+            row += f'{item}, '
+        row += f'{line[-1]})'
+        rows.append(row)
+
+for row in rows:
+    cur.execute(f"insert into hasMeasurement values {row};")
+    print(f"Inserted {row} into hasMeasurement")
+
 
 conn.commit() # <---------------- This god damn line
