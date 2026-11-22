@@ -13,7 +13,7 @@ def get_rows(filepath: str) -> list:
     :param filepath: String of the relative path of the CSV file
     """
     rows = []  # List of SQL friendly value strings
-    with open("opgE/measurements.csv", 'r') as file:
+    with open(filepath, 'r') as file:
         file.readline()  # Header
         lines = file.readlines()
         # Goes through each line in the CSV file
