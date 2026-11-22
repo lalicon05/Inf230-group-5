@@ -1,0 +1,241 @@
+{
+  "@context": {
+    "brick": "https://brickschema.org/schema/Brick#",
+    "c": "https://home.bawue.de/~horsch/teaching/inf230/lab/inf230-oppgaave-C.html#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "data": "https://home.bawue.de/~horsch/teaching/inf230/lab/data#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "vann": "http://purl.org/vocab/vann/",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "data:PhysicalThing2",
+      "@type": "c:PhysicalThing",
+      "c:HasMeasurement": [
+        {
+          "@id": "data:Measurement5"
+        },
+        {
+          "@id": "data:Measurement6"
+        },
+        {
+          "@id": "data:Measurement7"
+        }
+      ],
+      "c:Name": "Room",
+      "rdfs:label": "Room"
+    },
+    {
+      "@id": "data:Measurement3",
+      "@type": [
+        "c:Measurement",
+        "c:SIMeasurement",
+        "c:Length"
+      ],
+      "c:ErrorAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.0"
+      },
+      "c:MeasuredValue": {
+        "@type": "xsd:float",
+        "@value": "0.75"
+      },
+      "c:MeasurementOf": {
+        "@id": "data:PhysicalThing1"
+      },
+      "c:UncertaintyAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.001"
+      },
+      "rdfs:label": "TableHeight"
+    },
+    {
+      "@id": "data:Measurement5",
+      "@type": [
+        "c:Measurement",
+        "c:SIMeasurement",
+        "c:Length"
+      ],
+      "c:ErrorAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.02"
+      },
+      "c:MeasuredValue": {
+        "@type": "xsd:float",
+        "@value": "4.0"
+      },
+      "c:MeasurementOf": {
+        "@id": "data:PhysicalThing2"
+      },
+      "c:UncertaintyAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.01"
+      },
+      "rdfs:label": "RoomWidth"
+    },
+    {
+      "@id": "data:Measurement6",
+      "@type": [
+        "c:Measurement",
+        "c:SIMeasurement",
+        "c:Length"
+      ],
+      "c:ErrorAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.01"
+      },
+      "c:MeasuredValue": {
+        "@type": "xsd:float",
+        "@value": "3.0"
+      },
+      "c:MeasurementOf": {
+        "@id": "data:PhysicalThing2"
+      },
+      "c:UncertaintyAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.01"
+      },
+      "rdfs:label": "RoomDepth"
+    },
+    {
+      "@id": "data:Measurement2",
+      "@type": [
+        "c:Measurement",
+        "c:SIMeasurement",
+        "c:Length"
+      ],
+      "c:ErrorAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.001"
+      },
+      "c:MeasuredValue": {
+        "@type": "xsd:float",
+        "@value": "0.8"
+      },
+      "c:MeasurementOf": {
+        "@id": "data:PhysicalThing1"
+      },
+      "c:UncertaintyAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.001"
+      },
+      "rdfs:label": "TableDepth"
+    },
+    {
+      "@id": "data:Measurement7",
+      "@type": [
+        "c:Measurement",
+        "c:SIMeasurement",
+        "c:Temperature"
+      ],
+      "c:ErrorAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.3"
+      },
+      "c:MeasuredValue": {
+        "@type": "xsd:float",
+        "@value": "295.15"
+      },
+      "c:MeasurementOf": {
+        "@id": "data:PhysicalThing2"
+      },
+      "c:UncertaintyAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.5"
+      },
+      "rdfs:label": "RoomTemperature"
+    },
+    {
+      "@id": "data:PhysicalThing1",
+      "@type": "c:PhysicalThing",
+      "c:HasMeasurement": [
+        {
+          "@id": "data:Measurement1"
+        },
+        {
+          "@id": "data:Measurement2"
+        },
+        {
+          "@id": "data:Measurement3"
+        },
+        {
+          "@id": "data:Measurement4"
+        }
+      ],
+      "c:Name": "Table",
+      "rdfs:label": "Table"
+    },
+    {
+      "@id": "data:Measurement1",
+      "@type": [
+        "c:Measurement",
+        "c:SIMeasurement",
+        "c:Length"
+      ],
+      "c:ErrorAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.002"
+      },
+      "c:MeasuredValue": {
+        "@type": "xsd:float",
+        "@value": "1.6"
+      },
+      "c:MeasurementOf": {
+        "@id": "data:PhysicalThing1"
+      },
+      "c:UncertaintyAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.001"
+      },
+      "rdfs:label": "TableWidth"
+    },
+    {
+      "@id": "data:Measurement4",
+      "@type": [
+        "c:Measurement",
+        "c:SIMeasurement",
+        "c:Mass"
+      ],
+      "c:ErrorAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.2"
+      },
+      "c:MeasuredValue": {
+        "@type": "xsd:float",
+        "@value": "25.0"
+      },
+      "c:MeasurementOf": {
+        "@id": "data:PhysicalThing1"
+      },
+      "c:UncertaintyAbsolute": {
+        "@type": "xsd:float",
+        "@value": "0.1"
+      },
+      "rdfs:label": "TableMass"
+    }
+  ]
+}
